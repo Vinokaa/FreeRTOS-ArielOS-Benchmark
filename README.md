@@ -26,6 +26,8 @@
   
   Uma tela será apresentada, na qual você deve configurar a versão utilizada da ESP32 (no nosso caso, será a ESP32-WROOM-32D)
 
+  <img src="images/esp-generate.png" width=800 />
+
   <br>
 
   ### Executando um projeto
