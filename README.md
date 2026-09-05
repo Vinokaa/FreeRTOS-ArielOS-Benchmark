@@ -5,8 +5,6 @@
 <details>
   <summary>Ariel OS</summary>
 
-  <br>
-
   ### Pré-requisitos
 
   - [rustup](https://rustup.rs/)
@@ -68,8 +66,33 @@
 <details>
   <summary>FreeRTOS</summary>
 
-  <br>
+  ### Pré-requisitos
 
-  Documentação em desenvolvimento.
+  - Makefile
+
+  ### Executando um projeto
+
+  Para executar um projeto, abra um terminal no diretório do FreeRTOS e execute:
+
+  ```
+  make setup
+  make <nome-do-projeto>
+  ```
+  `<nome-do-projeto>`: Uma das três aplicações (blinky, uart, iot)
+
+  >Caso algum dos passos retorne algum erro como:
+  >```
+  >error: unable to create file tf-psa-crypto/.../fips202_native_aarch64.h: Filename too long
+  >```
+  >Execute o seguinte comando para configurar o git para aceitar caminhos longos de arquivos:
+  >```
+  >git config --global core.longpaths true
+  >```
+
+  ### Exemplo de execução
+
+  Abaixo é apresentado um exemplo de execução bem-sucedida do projeto:
+
+  <!-- <img src="images/ariel-running.png" width="800" /> -->
 
 </details>
