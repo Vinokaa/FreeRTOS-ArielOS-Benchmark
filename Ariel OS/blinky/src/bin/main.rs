@@ -3,7 +3,7 @@
 
 use esp_hal::{
     clock::CpuClock,
-    gpio::{Io, Level, Output, OutputConfig},
+    gpio::{Level, Output, OutputConfig},
     main,
     time::{Duration, Instant},
 };
@@ -14,6 +14,8 @@ use esp_hal::{
 fn panic(_: &core::panic::PanicInfo) -> ! {
     esp_hal::system::software_reset()
 }
+
+esp_bootloader_esp_idf::esp_app_desc!();
 
 #[main]
 fn main() -> ! {
