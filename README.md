@@ -57,7 +57,7 @@
 
   ### Exemplo de execução
 
-  Abaixo é apresentado um exemplo de execução bem-sucedida do projeto:
+  Abaixo é apresentado um exemplo de execução bem-sucedida do projeto blinky:
 
   <img src="images/ariel-running.png" width="800" />
 
@@ -69,6 +69,8 @@
   ### Pré-requisitos
 
   - Makefile
+  - Python
+  - Git
 
   ### Executando um projeto
 
@@ -78,6 +80,7 @@
   make setup
   make <nome-do-projeto>
   ```
+
   `<nome-do-projeto>`: Uma das três aplicações (blinky, uart, iot)
 
   >Caso algum dos passos retorne algum erro como:
@@ -91,7 +94,7 @@
 
   ### Exemplo de execução
 
-  Abaixo é apresentado um exemplo de execução bem-sucedida do projeto:
+  Abaixo é apresentado um exemplo de execução bem-sucedida do projeto blinky:
 
   <!-- <img src="images/ariel-running.png" width="800" /> -->
 
