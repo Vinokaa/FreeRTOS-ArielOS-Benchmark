@@ -92,10 +92,11 @@
   >git config --global core.longpaths true
   >```
 
+
   ### Exemplo de execução
 
   Abaixo é apresentado um exemplo de execução bem-sucedida do projeto blinky:
 
-  <!-- <img src="images/ariel-running.png" width="800" /> -->
+ <img src="images/freertos-running.png" width="800" />
 
 </details>

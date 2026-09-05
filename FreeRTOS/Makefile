@@ -5,6 +5,7 @@ ifdef OS
 
 	IF = if not exist "$(1)" $(2)
 else
+	SHELL := /bin/bash
 	INSTALL = install.sh
 	EXPORT = export.sh
 	PATH_SEP = /
@@ -19,5 +20,8 @@ setup:
 	.$(PATH_SEP)esp-idf$(PATH_SEP)$(INSTALL)
 
 blinky:
-	.$(PATH_SEP)esp-idf$(PATH_SEP)$(EXPORT)
-	cd blinky && idf.py build flash monitor
+ifdef OS
+	call .$(PATH_SEP)esp-idf$(PATH_SEP)$(EXPORT) && cd blinky && idf.py build flash monitor
+else
+	source ./esp-idf/export.sh && cd blinky && idf.py build flash monitor
+endif
