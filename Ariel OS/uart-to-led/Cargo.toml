@@ -1,0 +1,13 @@
+[package]
+name = "uart-to-led"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ariel-os = { path = "build/imports/ariel-os/src/ariel-os", features = ["time", "uart"] }
+ariel-os-boards = { path = "build/imports/ariel-os/src/ariel-os-boards" }
+embassy-sync = { version = "0.7.2", default-features = false }
+embedded-io-async = { version = "0.6.1", default-features = false }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(context, values(any()))'] }
