@@ -1,0 +1,4 @@
+[workspace]
+resolver = "2"
+members = ["bench-common", "blinky2", "uart-to-led", "iot"]
+exclude = ["build"]

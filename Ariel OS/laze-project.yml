@@ -1,0 +1,10 @@
+imports:
+  - git:
+      url: https://github.com/ariel-os/ariel-os
+      tag: v0.6.0
+    dldir: ariel-os
+
+subdirs:
+  - blinky2
+  - uart-to-led
+  - iot
