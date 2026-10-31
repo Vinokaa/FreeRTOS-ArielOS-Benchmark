@@ -4,3 +4,7 @@
 **/build_*_*/
 **/sdkconfig
 **/sdkconfig.old
+
+# Textos de contexto compartilhados fora do repositório
+/FreeRTOS/README.md
+/FreeRTOS/VALIDACAO_E_TESTES_PENDENTES.md

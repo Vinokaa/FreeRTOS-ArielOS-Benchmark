@@ -11,7 +11,7 @@ Uso:
 Saídas em out/:
     results.csv    uma linha RESULT por execução e métrica (calculada no host a partir das linhas
                    SAMPLE quando o log não traz RESULT — caso do Ariel OS)
-    samples.csv    amostras brutas (linhas SAMPLE; no FreeRTOS, se compilado com CONFIG_BENCH_DUMP_RAW)
+    samples.csv    amostras brutas (linhas SAMPLE dos dois sistemas)
     summary.csv    agregado ENTRE execuções por (os, app, metric, cfg): média/mediana/desvio-padrão
                    das médias, pior máximo, média dos desvios, P50 e pior dos P99
     compare.csv    Ariel OS × FreeRTOS lado a lado (média das médias, P99, razões)
@@ -60,6 +60,8 @@ def parse(path, run, os_override):
 
     results, samples, footprints, infos = [], [], [], []
     for line in lines:
+        # Ariel appends a Rust source location after the final CSV value.
+        line = re.sub(r"\s+\([^()\n]*\.rs:\d+(?::\d+)?\)\s*$", "", line)
         m = re.search(r"\b(RESULT|SAMPLE|FOOTPRINT|INFO),(.*)$", line)
         if not m:
             continue
