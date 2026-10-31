@@ -1834,6 +1834,7 @@ dependencies = [
  "ariel-os-boards",
  "bench-common",
  "critical-section",
+ "esp-hal",
 ]
 
 [[package]]

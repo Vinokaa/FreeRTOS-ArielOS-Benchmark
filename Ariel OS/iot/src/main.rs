@@ -1,10 +1,11 @@
-//! Aplicação 3 — IoT (complexa): aquisição → processamento → atuação + log (Fig. 1c).
+//! Aplicação 3 — IoT (complexa): aquisição -> processamento -> atuação + log (Fig. 1c).
 //!
 //! * Task Sensor (thread, 10 ms): gera uma leitura sintética (12 bits, determinística) e
-//!   pulsa a linha DRDY (GPIO4). Jumper GPIO4 → GPIO5 faz o papel do pino "data-ready"
-//!   de um sensor real.
-//! * Interrupção: borda de subida em GPIO5 (external-interrupts do Ariel OS) → tarefa
-//!   assíncrona `drdy_irq`, que sinaliza a thread de processamento.
+//!   dispara a interrupção de software FROM_CPU_INTR2 da CPU, que faz o papel do pino
+//!   "data-ready" de um sensor real (sem jumper; como o EXTI disparado por software de
+//!   Wang et al. no STM32).
+//! * Interrupção: handler `drdy_swi` de FROM_CPU_INTR2, que sinaliza a thread de
+//!   processamento. (O escalonador Xtensa do Ariel OS usa só as SWI 0 e 1.)
 //! * Task Processamento (thread, prio. alta): média móvel de 8 amostras, conversão para mV,
 //!   alarme com histerese; escreve no struct compartilhado.
 //! * Task Atuador (thread, 20 ms): lê o struct e aciona o LED (GPIO2) conforme o alarme.
@@ -16,9 +17,9 @@
 //!  * LATÊNCIA DE TASK-SWITCH                C_início_processamento − C_sinalização
 //!  * (extra) tempo de execução do processamento, para validar a equivalência da carga.
 //!
-//! Observação: aqui o handler da interrupção é o do driver GPIO do Ariel OS; o ponto de
-//! medição é a primeira linha de código da aplicação após a interrupção (retomada do
-//! `wait_for_rising_edge`), o que inclui ISR do driver + waker + poll do executor.
+//! Observação: o ponto de medição de C_irq é a primeira linha do handler `drdy_swi`
+//! (despacho da CPU + vetorização do esp-hal). A sinalização é feita dentro da própria
+//! ISR, então a latência de task-switch vai da ISR até a 1ª linha do Processamento.
 #![no_main]
 #![no_std]
 
@@ -28,7 +29,7 @@ use core::{
 };
 
 use ariel_os::{
-    gpio::{Input, Level, Output, Pull},
+    gpio::{Level, Output},
     thread::{self, thread_flags, ThreadId},
     time::{Duration, Instant},
 };
@@ -39,6 +40,10 @@ use bench_common::{
     sync::Flag,
 };
 use critical_section::Mutex;
+use esp_hal::{
+    interrupt::{software::SoftwareInterrupt, Priority},
+    ram,
+};
 
 const APP: &str = "iot";
 const SENSOR_PERIOD_MS: u64 = 10;
@@ -62,22 +67,29 @@ struct Shared {
 static SHARED: Mutex<RefCell<Shared>> =
     Mutex::new(RefCell::new(Shared { seq: 0, raw: 0, mv: 0, alarm: false }));
 
-// ---- Comunicação sensor → IRQ → processamento ----
+// ---- Comunicação sensor -> IRQ -> processamento ----
 static RAW_VAL: AtomicU32 = AtomicU32::new(0);
 static T_EVENT: AtomicU32 = AtomicU32::new(0);
+static T_IRQ: AtomicU32 = AtomicU32::new(0);
 static T_SIG: AtomicU32 = AtomicU32::new(0);
 static PROC_TID: Mutex<Cell<Option<ThreadId>>> = Mutex::new(Cell::new(None));
 
-static TRIG: PinSlot = PinSlot::new();
 static ACT_LED: PinSlot = PinSlot::new();
 static HW_READY: Flag = Flag::new();
 static PROC_UP: Flag = Flag::new();
 
 ariel_os::hal::define_peripherals!(Pins {
-    trig: GPIO4,
-    echo: GPIO5,
     led: GPIO2,
 });
+
+/// Interrupção de software usada como DRDY (FROM_CPU_INTR2).
+///
+/// SAFETY: o Ariel OS usa só as SWI 0 e 1 (escalonador); a 2 é exclusiva desta app e
+/// `raise`/`reset` são escritas atômicas em um único registrador.
+#[inline(always)]
+fn drdy_swi_line() -> SoftwareInterrupt<'static, 2> {
+    unsafe { SoftwareInterrupt::<2>::steal() }
+}
 
 /// Leitura sintética de 12 bits: triângulo lento + ruído pseudoaleatório determinístico.
 fn synth(seq: u32) -> u16 {
@@ -89,35 +101,27 @@ fn synth(seq: u32) -> u16 {
 
 // ======================= Interrupção (DRDY) =======================
 
-/// Dona dos pinos de DRDY/LED; espera a borda de subida e sinaliza o processamento.
-#[ariel_os::task(autostart, peripherals)]
-async fn drdy_irq(p: Pins) {
-    TRIG.install(Output::new(p.trig, Level::Low));
-    ACT_LED.install(Output::new(p.led, Level::Low));
-    let mut echo = Input::builder(p.echo, Pull::None)
-        .build_with_interrupt()
-        .unwrap();
-    HW_READY.set();
+/// Handler de FROM_CPU_INTR2: registra C_irq e sinaliza o processamento.
+/// Sem coletor/log aqui: a amostra de latência é empurrada pela thread de processamento.
+#[esp_hal::handler(priority = Priority::Priority1)]
+#[ram]
+fn drdy_swi() {
+    let t_irq = clock::now_us(); // primeira linha de código da app após a interrupção
+    drdy_swi_line().reset(); // limpa FROM_CPU_INTR2
+    T_IRQ.store(t_irq, Ordering::Release);
 
-    let mut c_irq = Collector::new();
-    let mut reported = false;
-
-    loop {
-        echo.wait_for_rising_edge().await;
-        let t_irq = clock::now_us(); // primeira linha de código da app após a interrupção
-        let t_ev = T_EVENT.load(Ordering::Acquire);
-
-        if let Some(tid) = critical_section::with(|cs| PROC_TID.borrow(cs).get()) {
-            T_SIG.store(clock::now_us(), Ordering::Release); // C_sinalização
-            thread_flags::set(tid, FLAG_DRDY);
-        }
-
-        c_irq.push(clock::delta_i32(t_ev, t_irq));
-        if c_irq.is_full() && !reported {
-            reported = true;
-            c_irq.finish(APP, "irq_latency", "gpio_drdy");
-        }
+    if let Some(tid) = critical_section::with(|cs| PROC_TID.borrow(cs).get()) {
+        T_SIG.store(clock::now_us(), Ordering::Release); // C_sinalização
+        thread_flags::set(tid, FLAG_DRDY);
     }
+}
+
+/// Dona do pino do LED; instala o handler da interrupção de software.
+#[ariel_os::task(autostart, peripherals)]
+async fn hw_init(p: Pins) {
+    ACT_LED.install(Output::new(p.led, Level::Low));
+    drdy_swi_line().set_interrupt_handler(drdy_swi);
+    HW_READY.set();
 }
 
 // ======================= Task Sensor =======================
@@ -142,10 +146,9 @@ fn sensor() {
         deadline += period;
 
         // ---- Aquisição (carga da aplicação) ----
-        TRIG.set(false); // rearma a linha DRDY (garante nova borda de subida)
         RAW_VAL.store(synth(seq) as u32, Ordering::Release);
         T_EVENT.store(clock::now_us(), Ordering::Release); // C_evento
-        TRIG.set(true); // gera a interrupção
+        drdy_swi_line().raise(); // gera a interrupção
         seq = seq.wrapping_add(1);
 
         // ---- Instrumentação: jitter periódico ----
@@ -162,8 +165,8 @@ fn sensor() {
 
 // ======================= Task Processamento =======================
 
-// 2 coletores de ~4 KB na pilha (c_sw, c_exec) -> 12 KB (8 KB estouraria a pilha).
-#[ariel_os::thread(autostart, stacksize = 12288, priority = 4)]
+// 3 coletores de ~4 KB na pilha (c_irq, c_sw, c_exec) -> 16 KB.
+#[ariel_os::thread(autostart, stacksize = 16384, priority = 4)]
 fn processing() {
     HW_READY.wait();
     critical_section::with(|cs| PROC_TID.borrow(cs).set(thread::current_tid()));
@@ -175,6 +178,7 @@ fn processing() {
     let mut alarm = false;
     let mut seq: u32 = 0;
 
+    let mut c_irq = Collector::new();
     let mut c_sw = Collector::new();
     let mut c_exec = Collector::new();
     let mut reported = false;
@@ -184,6 +188,8 @@ fn processing() {
         let t_start = clock::now_us(); // C_início_processamento
         thread_flags::clear(FLAG_DRDY);
         let t_sig = T_SIG.load(Ordering::Acquire);
+        let t_irq = T_IRQ.load(Ordering::Acquire);
+        let t_ev = T_EVENT.load(Ordering::Acquire);
 
         // ---- Processamento: média móvel + conversão para mV + alarme com histerese ----
         let raw = RAW_VAL.load(Ordering::Acquire) as u16;
@@ -207,10 +213,12 @@ fn processing() {
         let t_end = clock::now_us();
 
         // ---- Instrumentação ----
+        c_irq.push(clock::delta_i32(t_ev, t_irq));
         c_sw.push(clock::delta_i32(t_sig, t_start));
         c_exec.push(clock::delta_i32(t_start, t_end));
         if c_sw.is_full() && !reported {
             reported = true;
+            c_irq.finish(APP, "irq_latency", "swi_drdy");
             c_sw.finish(APP, "task_switch", "isr_to_thread");
             c_exec.finish(APP, "proc_exec", "avg8_alarm");
             report::end(APP);
