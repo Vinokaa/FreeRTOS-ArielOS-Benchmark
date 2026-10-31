@@ -13,7 +13,7 @@ else
 	IF = if [ ! -d "$(1)" ]; then $(2); fi
 endif
 
-.PHONY: setup blinky uart-to-led
+.PHONY: setup blinky uart-to-led uart iot
 
 setup:
 	$(call IF,esp-idf,git clone https://github.com/espressif/esp-idf.git)
@@ -31,4 +31,13 @@ ifdef OS
 	call .$(PATH_SEP)esp-idf$(PATH_SEP)$(EXPORT) && cd uart-to-led && idf.py build flash monitor
 else
 	source ./esp-idf/export.sh && cd uart-to-led && idf.py build flash monitor
+endif
+
+uart: uart-to-led
+
+iot:
+ifdef OS
+	call .$(PATH_SEP)esp-idf$(PATH_SEP)$(EXPORT) && cd iot && idf.py build flash monitor
+else
+	source ./esp-idf/export.sh && cd iot && idf.py build flash monitor
 endif
