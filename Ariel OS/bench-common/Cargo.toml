@@ -1,0 +1,14 @@
+[package]
+name = "bench-common"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+ariel-os = { path = "../build/imports/ariel-os/src/ariel-os", features = ["threading", "time"] }
+critical-section = "1"
+esp-hal = { version = "~1.0.0", default-features = false, optional = true }
+
+[features]
+default = ["esp-clock"]
+esp-clock = ["dep:esp-hal"]

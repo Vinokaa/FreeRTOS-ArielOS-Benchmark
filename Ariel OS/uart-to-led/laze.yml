@@ -1,0 +1,6 @@
+apps:
+  - name: uart-to-led
+    context:
+      - esp
+    selects:
+      - sw/threading   # liga o escalonador de threads preemptivas

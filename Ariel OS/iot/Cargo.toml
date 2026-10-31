@@ -1,0 +1,15 @@
+[package]
+name = "iot"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ariel-os = { path = "../build/imports/ariel-os/src/ariel-os", features = ["threading", "time"] }
+ariel-os-boards = { path = "../build/imports/ariel-os/src/ariel-os-boards" }
+bench-common = { path = "../bench-common" }
+critical-section = "1.2.0"
+esp-hal = { version = "~1.0.0", default-features = false, features = ["unstable"] }
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = [
+  'cfg(context, values(any()))',
+] }
