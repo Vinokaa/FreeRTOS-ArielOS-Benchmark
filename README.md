@@ -25,7 +25,7 @@ primeiras são descartadas, em **ciclos de CPU** (registrador CCOUNT, 240 MHz).
 | Aplicação | FreeRTOS | Ariel OS |
 | --- | --- | --- |
 | Blinky | jitter 1/10/100 ms | jitter 1/10/100 ms |
-| UART-to-LED | task-switch, latência de interrupção | task-switch (via `bech_uart_to_led.py`) |
+| UART-to-LED | task-switch, latência de interrupção | task-switch, latência de interrupção |
 | IoT | jitter 10 ms, interrupção, task-switch, tempo de processamento | jitter 10 ms, interrupção, task-switch, tempo de processamento |
 
 ## 1. Instalação (uma vez)

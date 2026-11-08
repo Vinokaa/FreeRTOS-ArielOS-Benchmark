@@ -6,6 +6,8 @@ ariel-os,iot,irq_latency,swi_drdy,cycles,5,636.00,636.00,0.00,636,0.00,636.00,63
 ariel-os,iot,jitter,sensor_10ms,cycles,5,0.00,0.00,0.00,1368,1028.80,1263.00,1263
 ariel-os,iot,proc_exec,avg8_alarm,cycles,5,1292.00,1292.00,0.00,4126,259.00,1271.00,1271
 ariel-os,iot,task_switch,isr_to_thread,cycles,5,1831.00,1831.00,0.00,2768,94.00,1822.00,1822
+ariel-os,uart-to-led,irq_latency,swi_uart,cycles,5,626.00,626.00,0.00,626,0.00,626.00,626
+ariel-os,uart-to-led,task_switch,uart_to_led,cycles,5,1566.00,1566.00,0.00,1566,0.00,1566.00,1566
 freertos,blinky,jitter,100ms,cycles,5,0.00,0.00,0.00,0,0.00,0.00,0
 freertos,blinky,jitter,10ms,cycles,5,0.00,0.00,0.00,0,0.00,0.00,0
 freertos,blinky,jitter,1ms,cycles,5,0.00,0.00,0.00,0,0.00,0.00,0

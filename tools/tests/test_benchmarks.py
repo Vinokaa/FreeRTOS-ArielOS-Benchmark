@@ -265,9 +265,12 @@ class CaptureTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, message):
                     capture.validate(bad, "blinky", os_label)
 
-    def test_ariel_uart_is_not_a_capture_target(self):
-        self.assertNotIn(("ariel-os", "uart-to-led"), capture.EXPECTED)
-        self.assertIn(("ariel-os", "uart-to-led"), capture.NOT_SUPPORTED)
+    def test_ariel_uart_expects_same_metrics_as_freertos(self):
+        self.assertEqual(capture.EXPECTED[("ariel-os", "uart-to-led")],
+                         capture.EXPECTED[("freertos", "uart-to-led")])
+        self.assertNotIn(("ariel-os", "uart-to-led"), capture.NOT_SUPPORTED)
+        capture.validate(ariel_style(sample_log("uart-to-led", "ariel-os")),
+                         "uart-to-led", "ariel-os")
 
     def test_timeout_preserves_partial_serial_log(self):
         class Serial:

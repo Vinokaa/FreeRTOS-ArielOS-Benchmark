@@ -1,0 +1,3039 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6072
+load:0x40078000,len:15776
+load:0x40080400,len:3920
+entry 0x40080638
+I (27) boot: ESP-IDF v6.1-829-g9a97f6c54ec 2nd stage bootloader
+I (28) boot: chip revision: v3.1
+I (28) boot.esp32: SPI Speed      : 40MHz
+I (29) boot.esp32: SPI Mode       : DIO
+I (33) boot.esp32: SPI Flash Size : 4MB
+I (37) boot: Partition Table:
+I (39) boot: ## Label            Usage          Type ST Offset   Length
+I (46) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (52) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (59) boot:  2 factory          factory app      00 00 00010000 003f0000
+I (65) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=03478h ( 13432) map
+I (77) esp_image: segment 1: paddr=000134a0 vaddr=3ffb0000 size=01d00h (  7424) load
+I (83) esp_image: segment 2: paddr=000151a8 vaddr=40080000 size=018b0h (  6320) load
+I (90) esp_image: segment 3: paddr=00016a60 vaddr=00000000 size=095b8h ( 38328) 
+I (108) esp_image: segment 4: paddr=00020020 vaddr=400d0020 size=0cbb0h ( 52144) map
+I (128) boot: Loaded app from partition at offset 0x10000
+[INFO] BENCH_BEGIN,uart-to-led,ariel-os,0.2.0,unit=cycles,cpu_hz=240000000,n=1000,warmup=5
+[INFO] INFO,uart-to-led,cpu_hz,240000000
+[INFO] INFO,uart-to-led,ccount_per_100ms,24001914
+
+READY
+R,0,1,11085
+R,1,0,1566
+R,2,t,1566
+R,3,1,1566
+R,4,0,1566
+R,5,t,1566
+R,6,1,1566
+R,7,0,1566
+R,8,t,1566
+R,9,1,1566
+R,10,0,1566
+R,11,t,1566
+R,12,1,1566
+R,13,0,1566
+R,14,t,1566
+R,15,1,1566
+R,16,0,1566
+R,17,t,1566
+R,18,1,1566
+R,19,0,1566
+R,20,t,1566
+R,21,1,1566
+R,22,0,1566
+R,23,t,1566
+R,24,1,1566
+R,25,0,1566
+R,26,t,1566
+R,27,1,1566
+R,28,0,1566
+R,29,t,1566
+R,30,1,1566
+R,31,0,1566
+R,32,t,1566
+R,33,1,1566
+R,34,0,1566
+R,35,t,1566
+R,36,1,1566
+R,37,0,1566
+R,38,t,1566
+R,39,1,1566
+R,40,0,1566
+R,41,t,1566
+R,42,1,1566
+R,43,0,1566
+R,44,t,1566
+R,45,1,1566
+R,46,0,1566
+R,47,t,1566
+R,48,1,1566
+R,49,0,1566
+R,50,t,1566
+R,51,1,1566
+R,52,0,1566
+R,53,t,1566
+R,54,1,1566
+R,55,0,1566
+R,56,t,1566
+R,57,1,1566
+R,58,0,1566
+R,59,t,1566
+R,60,1,1566
+R,61,0,1566
+R,62,t,1566
+R,63,1,1566
+R,64,0,1566
+R,65,t,1566
+R,66,1,1566
+R,67,0,1566
+R,68,t,1566
+R,69,1,1566
+R,70,0,1566
+R,71,t,1566
+R,72,1,1566
+R,73,0,1566
+R,74,t,1566
+R,75,1,1566
+R,76,0,1566
+R,77,t,1566
+R,78,1,1566
+R,79,0,1566
+R,80,t,1566
+R,81,1,1566
+R,82,0,1566
+R,83,t,1566
+R,84,1,1566
+R,85,0,1566
+R,86,t,1566
+R,87,1,1566
+R,88,0,1566
+R,89,t,1566
+R,90,1,1566
+R,91,0,1566
+R,92,t,1566
+R,93,1,1566
+R,94,0,1566
+R,95,t,1566
+R,96,1,1566
+R,97,0,1566
+R,98,t,1566
+R,99,1,1566
+R,100,0,1566
+R,101,t,1566
+R,102,1,1566
+R,103,0,1566
+R,104,t,1566
+R,105,1,1566
+R,106,0,1566
+R,107,t,1566
+R,108,1,1566
+R,109,0,1566
+R,110,t,1566
+R,111,1,1566
+R,112,0,1566
+R,113,t,1566
+R,114,1,1566
+R,115,0,1566
+R,116,t,1566
+R,117,1,1566
+R,118,0,1566
+R,119,t,1566
+R,120,1,1566
+R,121,0,1566
+R,122,t,1566
+R,123,1,1566
+R,124,0,1566
+R,125,t,1566
+R,126,1,1566
+R,127,0,1566
+R,128,t,1566
+R,129,1,1566
+R,130,0,1566
+R,131,t,1566
+R,132,1,1566
+R,133,0,1566
+R,134,t,1566
+R,135,1,1566
+R,136,0,1566
+R,137,t,1566
+R,138,1,1566
+R,139,0,1566
+R,140,t,1566
+R,141,1,1566
+R,142,0,1566
+R,143,t,1566
+R,144,1,1566
+R,145,0,1566
+R,146,t,1566
+R,147,1,1566
+R,148,0,1566
+R,149,t,1566
+R,150,1,1566
+R,151,0,1566
+R,152,t,1566
+R,153,1,1566
+R,154,0,1566
+R,155,t,1566
+R,156,1,1566
+R,157,0,1566
+R,158,t,1566
+R,159,1,1566
+R,160,0,1566
+R,161,t,1566
+R,162,1,1566
+R,163,0,1566
+R,164,t,1566
+R,165,1,1566
+R,166,0,1566
+R,167,t,1566
+R,168,1,1566
+R,169,0,1566
+R,170,t,1566
+R,171,1,1566
+R,172,0,1566
+R,173,t,1566
+R,174,1,1566
+R,175,0,1566
+R,176,t,1566
+R,177,1,1566
+R,178,0,1566
+R,179,t,1566
+R,180,1,1566
+R,181,0,1566
+R,182,t,1566
+R,183,1,1566
+R,184,0,1566
+R,185,t,1566
+R,186,1,1566
+R,187,0,1566
+R,188,t,1566
+R,189,1,1566
+R,190,0,1566
+R,191,t,1566
+R,192,1,1566
+R,193,0,1566
+R,194,t,1566
+R,195,1,1566
+R,196,0,1566
+R,197,t,1566
+R,198,1,1566
+R,199,0,1566
+R,200,t,1566
+R,201,1,1566
+R,202,0,1566
+R,203,t,1566
+R,204,1,1566
+R,205,0,1566
+R,206,t,1566
+R,207,1,1566
+R,208,0,1566
+R,209,t,1566
+R,210,1,1566
+R,211,0,1566
+R,212,t,1566
+R,213,1,1566
+R,214,0,1566
+R,215,t,1566
+R,216,1,1566
+R,217,0,1566
+R,218,t,1566
+R,219,1,1566
+R,220,0,1566
+R,221,t,1566
+R,222,1,1566
+R,223,0,1566
+R,224,t,1566
+R,225,1,1566
+R,226,0,1566
+R,227,t,1566
+R,228,1,1566
+R,229,0,1566
+R,230,t,1566
+R,231,1,1566
+R,232,0,1566
+R,233,t,1566
+R,234,1,1566
+R,235,0,1566
+R,236,t,1566
+R,237,1,1566
+R,238,0,1566
+R,239,t,1566
+R,240,1,1566
+R,241,0,1566
+R,242,t,1566
+R,243,1,1566
+R,244,0,1566
+R,245,t,1566
+R,246,1,1566
+R,247,0,1566
+R,248,t,1566
+R,249,1,1566
+R,250,0,1566
+R,251,t,1566
+R,252,1,1566
+R,253,0,1566
+R,254,t,1566
+R,255,1,1566
+R,256,0,1566
+R,257,t,1566
+R,258,1,1566
+R,259,0,1566
+R,260,t,1566
+R,261,1,1566
+R,262,0,1566
+R,263,t,1566
+R,264,1,1566
+R,265,0,1566
+R,266,t,1566
+R,267,1,1566
+R,268,0,1566
+R,269,t,1566
+R,270,1,1566
+R,271,0,1566
+R,272,t,1566
+R,273,1,1566
+R,274,0,1566
+R,275,t,1566
+R,276,1,1566
+R,277,0,1566
+R,278,t,1566
+R,279,1,1566
+R,280,0,1566
+R,281,t,1566
+R,282,1,1566
+R,283,0,1566
+R,284,t,1566
+R,285,1,1566
+R,286,0,1566
+R,287,t,1566
+R,288,1,1566
+R,289,0,1566
+R,290,t,1566
+R,291,1,1566
+R,292,0,1566
+R,293,t,1566
+R,294,1,1566
+R,295,0,1566
+R,296,t,1566
+R,297,1,1566
+R,298,0,1566
+R,299,t,1566
+R,300,1,1566
+R,301,0,1566
+R,302,t,1566
+R,303,1,1566
+R,304,0,1566
+R,305,t,1566
+R,306,1,1566
+R,307,0,1566
+R,308,t,1566
+R,309,1,1566
+R,310,0,1566
+R,311,t,1566
+R,312,1,1566
+R,313,0,1566
+R,314,t,1566
+R,315,1,1566
+R,316,0,1566
+R,317,t,1566
+R,318,1,1566
+R,319,0,1566
+R,320,t,1566
+R,321,1,1566
+R,322,0,1566
+R,323,t,1566
+R,324,1,1566
+R,325,0,1566
+R,326,t,1566
+R,327,1,1566
+R,328,0,1566
+R,329,t,1566
+R,330,1,1566
+R,331,0,1566
+R,332,t,1566
+R,333,1,1566
+R,334,0,1566
+R,335,t,1566
+R,336,1,1566
+R,337,0,1566
+R,338,t,1566
+R,339,1,1566
+R,340,0,1566
+R,341,t,1566
+R,342,1,1566
+R,343,0,1566
+R,344,t,1566
+R,345,1,1566
+R,346,0,1566
+R,347,t,1566
+R,348,1,1566
+R,349,0,1566
+R,350,t,1566
+R,351,1,1566
+R,352,0,1566
+R,353,t,1566
+R,354,1,1566
+R,355,0,1566
+R,356,t,1566
+R,357,1,1566
+R,358,0,1566
+R,359,t,1566
+R,360,1,1566
+R,361,0,1566
+R,362,t,1566
+R,363,1,1566
+R,364,0,1566
+R,365,t,1566
+R,366,1,1566
+R,367,0,1566
+R,368,t,1566
+R,369,1,1566
+R,370,0,1566
+R,371,t,1566
+R,372,1,1566
+R,373,0,1566
+R,374,t,1566
+R,375,1,1566
+R,376,0,1566
+R,377,t,1566
+R,378,1,1566
+R,379,0,1566
+R,380,t,1566
+R,381,1,1566
+R,382,0,1566
+R,383,t,1566
+R,384,1,1566
+R,385,0,1566
+R,386,t,1566
+R,387,1,1566
+R,388,0,1566
+R,389,t,1566
+R,390,1,1566
+R,391,0,1566
+R,392,t,1566
+R,393,1,1566
+R,394,0,1566
+R,395,t,1566
+R,396,1,1566
+R,397,0,1566
+R,398,t,1566
+R,399,1,1566
+R,400,0,1566
+R,401,t,1566
+R,402,1,1566
+R,403,0,1566
+R,404,t,1566
+R,405,1,1566
+R,406,0,1566
+R,407,t,1566
+R,408,1,1566
+R,409,0,1566
+R,410,t,1566
+R,411,1,1566
+R,412,0,1566
+R,413,t,1566
+R,414,1,1566
+R,415,0,1566
+R,416,t,1566
+R,417,1,1566
+R,418,0,1566
+R,419,t,1566
+R,420,1,1566
+R,421,0,1566
+R,422,t,1566
+R,423,1,1566
+R,424,0,1566
+R,425,t,1566
+R,426,1,1566
+R,427,0,1566
+R,428,t,1566
+R,429,1,1566
+R,430,0,1566
+R,431,t,1566
+R,432,1,1566
+R,433,0,1566
+R,434,t,1566
+R,435,1,1566
+R,436,0,1566
+R,437,t,1566
+R,438,1,1566
+R,439,0,1566
+R,440,t,1566
+R,441,1,1566
+R,442,0,1566
+R,443,t,1566
+R,444,1,1566
+R,445,0,1566
+R,446,t,1566
+R,447,1,1566
+R,448,0,1566
+R,449,t,1566
+R,450,1,1566
+R,451,0,1566
+R,452,t,1566
+R,453,1,1566
+R,454,0,1566
+R,455,t,1566
+R,456,1,1566
+R,457,0,1566
+R,458,t,1566
+R,459,1,1566
+R,460,0,1566
+R,461,t,1566
+R,462,1,1566
+R,463,0,1566
+R,464,t,1566
+R,465,1,1566
+R,466,0,1566
+R,467,t,1566
+R,468,1,1566
+R,469,0,1566
+R,470,t,1566
+R,471,1,1566
+R,472,0,1566
+R,473,t,1566
+R,474,1,1566
+R,475,0,1566
+R,476,t,1566
+R,477,1,1566
+R,478,0,1566
+R,479,t,1566
+R,480,1,1566
+R,481,0,1566
+R,482,t,1566
+R,483,1,1566
+R,484,0,1566
+R,485,t,1566
+R,486,1,1566
+R,487,0,1566
+R,488,t,1566
+R,489,1,1566
+R,490,0,1566
+R,491,t,1566
+R,492,1,1566
+R,493,0,1566
+R,494,t,1566
+R,495,1,1566
+R,496,0,1566
+R,497,t,1566
+R,498,1,1566
+R,499,0,1566
+R,500,t,1566
+R,501,1,1566
+R,502,0,1566
+R,503,t,1566
+R,504,1,1566
+R,505,0,1566
+R,506,t,1566
+R,507,1,1566
+R,508,0,1566
+R,509,t,1566
+R,510,1,1566
+R,511,0,1566
+R,512,t,1566
+R,513,1,1566
+R,514,0,1566
+R,515,t,1566
+R,516,1,1566
+R,517,0,1566
+R,518,t,1566
+R,519,1,1566
+R,520,0,1566
+R,521,t,1566
+R,522,1,1566
+R,523,0,1566
+R,524,t,1566
+R,525,1,1566
+R,526,0,1566
+R,527,t,1566
+R,528,1,1566
+R,529,0,1566
+R,530,t,1566
+R,531,1,1566
+R,532,0,1566
+R,533,t,1566
+R,534,1,1566
+R,535,0,1566
+R,536,t,1566
+R,537,1,1566
+R,538,0,1566
+R,539,t,1566
+R,540,1,1566
+R,541,0,1566
+R,542,t,1566
+R,543,1,1566
+R,544,0,1566
+R,545,t,1566
+R,546,1,1566
+R,547,0,1566
+R,548,t,1566
+R,549,1,1566
+R,550,0,1566
+R,551,t,1566
+R,552,1,1566
+R,553,0,1566
+R,554,t,1566
+R,555,1,1566
+R,556,0,1566
+R,557,t,1566
+R,558,1,1566
+R,559,0,1566
+R,560,t,1566
+R,561,1,1566
+R,562,0,1566
+R,563,t,1566
+R,564,1,1566
+R,565,0,1566
+R,566,t,1566
+R,567,1,1566
+R,568,0,1566
+R,569,t,1566
+R,570,1,1566
+R,571,0,1566
+R,572,t,1566
+R,573,1,1566
+R,574,0,1566
+R,575,t,1566
+R,576,1,1566
+R,577,0,1566
+R,578,t,1566
+R,579,1,1566
+R,580,0,1566
+R,581,t,1566
+R,582,1,1566
+R,583,0,1566
+R,584,t,1566
+R,585,1,1566
+R,586,0,1566
+R,587,t,1566
+R,588,1,1566
+R,589,0,1566
+R,590,t,1566
+R,591,1,1566
+R,592,0,1566
+R,593,t,1566
+R,594,1,1566
+R,595,0,1566
+R,596,t,1566
+R,597,1,1566
+R,598,0,1566
+R,599,t,1566
+R,600,1,1566
+R,601,0,1566
+R,602,t,1566
+R,603,1,1566
+R,604,0,1566
+R,605,t,1566
+R,606,1,1566
+R,607,0,1566
+R,608,t,1566
+R,609,1,1566
+R,610,0,1566
+R,611,t,1566
+R,612,1,1566
+R,613,0,1566
+R,614,t,1566
+R,615,1,1566
+R,616,0,1566
+R,617,t,1566
+R,618,1,1566
+R,619,0,1566
+R,620,t,1566
+R,621,1,1566
+R,622,0,1566
+R,623,t,1566
+R,624,1,1566
+R,625,0,1566
+R,626,t,1566
+R,627,1,1566
+R,628,0,1566
+R,629,t,1566
+R,630,1,1566
+R,631,0,1566
+R,632,t,1566
+R,633,1,1566
+R,634,0,1566
+R,635,t,1566
+R,636,1,1566
+R,637,0,1566
+R,638,t,1566
+R,639,1,1566
+R,640,0,1566
+R,641,t,1566
+R,642,1,1566
+R,643,0,1566
+R,644,t,1566
+R,645,1,1566
+R,646,0,1566
+R,647,t,1566
+R,648,1,1566
+R,649,0,1566
+R,650,t,1566
+R,651,1,1566
+R,652,0,1566
+R,653,t,1566
+R,654,1,1566
+R,655,0,1566
+R,656,t,1566
+R,657,1,1566
+R,658,0,1566
+R,659,t,1566
+R,660,1,1566
+R,661,0,1566
+R,662,t,1566
+R,663,1,1566
+R,664,0,1566
+R,665,t,1566
+R,666,1,1566
+R,667,0,1566
+R,668,t,1566
+R,669,1,1566
+R,670,0,1566
+R,671,t,1566
+R,672,1,1566
+R,673,0,1566
+R,674,t,1566
+R,675,1,1566
+R,676,0,1566
+R,677,t,1566
+R,678,1,1566
+R,679,0,1566
+R,680,t,1566
+R,681,1,1566
+R,682,0,1566
+R,683,t,1566
+R,684,1,1566
+R,685,0,1566
+R,686,t,1566
+R,687,1,1566
+R,688,0,1566
+R,689,t,1566
+R,690,1,1566
+R,691,0,1566
+R,692,t,1566
+R,693,1,1566
+R,694,0,1566
+R,695,t,1566
+R,696,1,1566
+R,697,0,1566
+R,698,t,1566
+R,699,1,1566
+R,700,0,1566
+R,701,t,1566
+R,702,1,1566
+R,703,0,1566
+R,704,t,1566
+R,705,1,1566
+R,706,0,1566
+R,707,t,1566
+R,708,1,1566
+R,709,0,1566
+R,710,t,1566
+R,711,1,1566
+R,712,0,1566
+R,713,t,1566
+R,714,1,1566
+R,715,0,1566
+R,716,t,1566
+R,717,1,1566
+R,718,0,1566
+R,719,t,1566
+R,720,1,1566
+R,721,0,1566
+R,722,t,1566
+R,723,1,1566
+R,724,0,1566
+R,725,t,1566
+R,726,1,1566
+R,727,0,1566
+R,728,t,1566
+R,729,1,1566
+R,730,0,1566
+R,731,t,1566
+R,732,1,1566
+R,733,0,1566
+R,734,t,1566
+R,735,1,1566
+R,736,0,1566
+R,737,t,1566
+R,738,1,1566
+R,739,0,1566
+R,740,t,1566
+R,741,1,1566
+R,742,0,1566
+R,743,t,1566
+R,744,1,1566
+R,745,0,1566
+R,746,t,1566
+R,747,1,1566
+R,748,0,1566
+R,749,t,1566
+R,750,1,1566
+R,751,0,1566
+R,752,t,1566
+R,753,1,1566
+R,754,0,1566
+R,755,t,1566
+R,756,1,1566
+R,757,0,1566
+R,758,t,1566
+R,759,1,1566
+R,760,0,1566
+R,761,t,1566
+R,762,1,1566
+R,763,0,1566
+R,764,t,1566
+R,765,1,1566
+R,766,0,1566
+R,767,t,1566
+R,768,1,1566
+R,769,0,1566
+R,770,t,1566
+R,771,1,1566
+R,772,0,1566
+R,773,t,1566
+R,774,1,1566
+R,775,0,1566
+R,776,t,1566
+R,777,1,1566
+R,778,0,1566
+R,779,t,1566
+R,780,1,1566
+R,781,0,1566
+R,782,t,1566
+R,783,1,1566
+R,784,0,1566
+R,785,t,1566
+R,786,1,1566
+R,787,0,1566
+R,788,t,1566
+R,789,1,1566
+R,790,0,1566
+R,791,t,1566
+R,792,1,1566
+R,793,0,1566
+R,794,t,1566
+R,795,1,1566
+R,796,0,1566
+R,797,t,1566
+R,798,1,1566
+R,799,0,1566
+R,800,t,1566
+R,801,1,1566
+R,802,0,1566
+R,803,t,1566
+R,804,1,1566
+R,805,0,1566
+R,806,t,1566
+R,807,1,1566
+R,808,0,1566
+R,809,t,1566
+R,810,1,1566
+R,811,0,1566
+R,812,t,1566
+R,813,1,1566
+R,814,0,1566
+R,815,t,1566
+R,816,1,1566
+R,817,0,1566
+R,818,t,1566
+R,819,1,1566
+R,820,0,1566
+R,821,t,1566
+R,822,1,1566
+R,823,0,1566
+R,824,t,1566
+R,825,1,1566
+R,826,0,1566
+R,827,t,1566
+R,828,1,1566
+R,829,0,1566
+R,830,t,1566
+R,831,1,1566
+R,832,0,1566
+R,833,t,1566
+R,834,1,1566
+R,835,0,1566
+R,836,t,1566
+R,837,1,1566
+R,838,0,1566
+R,839,t,1566
+R,840,1,1566
+R,841,0,1566
+R,842,t,1566
+R,843,1,1566
+R,844,0,1566
+R,845,t,1566
+R,846,1,1566
+R,847,0,1566
+R,848,t,1566
+R,849,1,1566
+R,850,0,1566
+R,851,t,1566
+R,852,1,1566
+R,853,0,1566
+R,854,t,1566
+R,855,1,1566
+R,856,0,1566
+R,857,t,1566
+R,858,1,1566
+R,859,0,1566
+R,860,t,1566
+R,861,1,1566
+R,862,0,1566
+R,863,t,1566
+R,864,1,1566
+R,865,0,1566
+R,866,t,1566
+R,867,1,1566
+R,868,0,1566
+R,869,t,1566
+R,870,1,1566
+R,871,0,1566
+R,872,t,1566
+R,873,1,1566
+R,874,0,1566
+R,875,t,1566
+R,876,1,1566
+R,877,0,1566
+R,878,t,1566
+R,879,1,1566
+R,880,0,1566
+R,881,t,1566
+R,882,1,1566
+R,883,0,1566
+R,884,t,1566
+R,885,1,1566
+R,886,0,1566
+R,887,t,1566
+R,888,1,1566
+R,889,0,1566
+R,890,t,1566
+R,891,1,1566
+R,892,0,1566
+R,893,t,1566
+R,894,1,1566
+R,895,0,1566
+R,896,t,1566
+R,897,1,1566
+R,898,0,1566
+R,899,t,1566
+R,900,1,1566
+R,901,0,1566
+R,902,t,1566
+R,903,1,1566
+R,904,0,1566
+R,905,t,1566
+R,906,1,1566
+R,907,0,1566
+R,908,t,1566
+R,909,1,1566
+R,910,0,1566
+R,911,t,1566
+R,912,1,1566
+R,913,0,1566
+R,914,t,1566
+R,915,1,1566
+R,916,0,1566
+R,917,t,1566
+R,918,1,1566
+R,919,0,1566
+R,920,t,1566
+R,921,1,1566
+R,922,0,1566
+R,923,t,1566
+R,924,1,1566
+R,925,0,1566
+R,926,t,1566
+R,927,1,1566
+R,928,0,1566
+R,929,t,1566
+R,930,1,1566
+R,931,0,1566
+R,932,t,1566
+R,933,1,1566
+R,934,0,1566
+R,935,t,1566
+R,936,1,1566
+R,937,0,1566
+R,938,t,1566
+R,939,1,1566
+R,940,0,1566
+R,941,t,1566
+R,942,1,1566
+R,943,0,1566
+R,944,t,1566
+R,945,1,1566
+R,946,0,1566
+R,947,t,1566
+R,948,1,1566
+R,949,0,1566
+R,950,t,1566
+R,951,1,1566
+R,952,0,1566
+R,953,t,1566
+R,954,1,1566
+R,955,0,1566
+R,956,t,1566
+R,957,1,1566
+R,958,0,1566
+R,959,t,1566
+R,960,1,1566
+R,961,0,1566
+R,962,t,1566
+R,963,1,1566
+R,964,0,1566
+R,965,t,1566
+R,966,1,1566
+R,967,0,1566
+R,968,t,1566
+R,969,1,1566
+R,970,0,1566
+R,971,t,1566
+R,972,1,1566
+R,973,0,1566
+R,974,t,1566
+R,975,1,1566
+R,976,0,1566
+R,977,t,1566
+R,978,1,1566
+R,979,0,1566
+R,980,t,1566
+R,981,1,1566
+R,982,0,1566
+R,983,t,1566
+R,984,1,1566
+R,985,0,1566
+R,986,t,1566
+R,987,1,1566
+R,988,0,1566
+R,989,t,1566
+R,990,1,1566
+R,991,0,1566
+R,992,t,1566
+R,993,1,1566
+R,994,0,1566
+R,995,t,1566
+R,996,1,1566
+R,997,0,1566
+R,998,t,1566
+R,999,1,1566
+R,1000,0,1566
+R,1001,t,1566
+R,1002,1,1566
+R,1003,0,1566
+R,1004,t,1566
+[INFO] SAMPLE_HEADER,app,metric,cfg,idx,value_cycles
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,0,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,1,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,2,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,3,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,4,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,5,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,6,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,7,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,8,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,9,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,10,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,11,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,12,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,13,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,14,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,15,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,16,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,17,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,18,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,19,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,20,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,21,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,22,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,23,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,24,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,25,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,26,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,27,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,28,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,29,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,30,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,31,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,32,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,33,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,34,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,35,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,36,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,37,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,38,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,39,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,40,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,41,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,42,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,43,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,44,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,45,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,46,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,47,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,48,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,49,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,50,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,51,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,52,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,53,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,54,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,55,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,56,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,57,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,58,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,59,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,60,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,61,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,62,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,63,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,64,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,65,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,66,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,67,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,68,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,69,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,70,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,71,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,72,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,73,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,74,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,75,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,76,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,77,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,78,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,79,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,80,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,81,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,82,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,83,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,84,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,85,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,86,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,87,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,88,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,89,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,90,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,91,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,92,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,93,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,94,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,95,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,96,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,97,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,98,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,99,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,100,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,101,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,102,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,103,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,104,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,105,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,106,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,107,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,108,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,109,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,110,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,111,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,112,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,113,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,114,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,115,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,116,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,117,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,118,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,119,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,120,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,121,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,122,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,123,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,124,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,125,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,126,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,127,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,128,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,129,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,130,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,131,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,132,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,133,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,134,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,135,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,136,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,137,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,138,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,139,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,140,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,141,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,142,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,143,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,144,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,145,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,146,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,147,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,148,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,149,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,150,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,151,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,152,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,153,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,154,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,155,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,156,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,157,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,158,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,159,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,160,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,161,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,162,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,163,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,164,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,165,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,166,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,167,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,168,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,169,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,170,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,171,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,172,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,173,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,174,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,175,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,176,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,177,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,178,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,179,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,180,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,181,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,182,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,183,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,184,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,185,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,186,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,187,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,188,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,189,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,190,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,191,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,192,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,193,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,194,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,195,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,196,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,197,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,198,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,199,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,200,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,201,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,202,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,203,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,204,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,205,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,206,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,207,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,208,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,209,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,210,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,211,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,212,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,213,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,214,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,215,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,216,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,217,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,218,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,219,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,220,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,221,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,222,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,223,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,224,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,225,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,226,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,227,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,228,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,229,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,230,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,231,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,232,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,233,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,234,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,235,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,236,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,237,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,238,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,239,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,240,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,241,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,242,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,243,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,244,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,245,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,246,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,247,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,248,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,249,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,250,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,251,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,252,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,253,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,254,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,255,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,256,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,257,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,258,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,259,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,260,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,261,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,262,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,263,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,264,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,265,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,266,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,267,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,268,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,269,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,270,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,271,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,272,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,273,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,274,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,275,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,276,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,277,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,278,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,279,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,280,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,281,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,282,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,283,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,284,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,285,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,286,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,287,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,288,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,289,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,290,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,291,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,292,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,293,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,294,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,295,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,296,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,297,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,298,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,299,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,300,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,301,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,302,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,303,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,304,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,305,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,306,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,307,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,308,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,309,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,310,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,311,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,312,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,313,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,314,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,315,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,316,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,317,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,318,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,319,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,320,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,321,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,322,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,323,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,324,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,325,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,326,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,327,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,328,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,329,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,330,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,331,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,332,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,333,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,334,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,335,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,336,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,337,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,338,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,339,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,340,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,341,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,342,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,343,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,344,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,345,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,346,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,347,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,348,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,349,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,350,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,351,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,352,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,353,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,354,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,355,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,356,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,357,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,358,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,359,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,360,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,361,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,362,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,363,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,364,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,365,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,366,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,367,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,368,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,369,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,370,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,371,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,372,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,373,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,374,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,375,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,376,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,377,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,378,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,379,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,380,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,381,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,382,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,383,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,384,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,385,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,386,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,387,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,388,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,389,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,390,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,391,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,392,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,393,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,394,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,395,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,396,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,397,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,398,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,399,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,400,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,401,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,402,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,403,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,404,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,405,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,406,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,407,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,408,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,409,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,410,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,411,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,412,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,413,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,414,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,415,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,416,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,417,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,418,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,419,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,420,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,421,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,422,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,423,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,424,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,425,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,426,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,427,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,428,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,429,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,430,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,431,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,432,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,433,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,434,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,435,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,436,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,437,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,438,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,439,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,440,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,441,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,442,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,443,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,444,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,445,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,446,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,447,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,448,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,449,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,450,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,451,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,452,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,453,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,454,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,455,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,456,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,457,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,458,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,459,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,460,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,461,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,462,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,463,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,464,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,465,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,466,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,467,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,468,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,469,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,470,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,471,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,472,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,473,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,474,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,475,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,476,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,477,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,478,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,479,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,480,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,481,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,482,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,483,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,484,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,485,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,486,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,487,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,488,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,489,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,490,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,491,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,492,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,493,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,494,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,495,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,496,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,497,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,498,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,499,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,500,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,501,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,502,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,503,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,504,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,505,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,506,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,507,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,508,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,509,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,510,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,511,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,512,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,513,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,514,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,515,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,516,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,517,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,518,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,519,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,520,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,521,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,522,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,523,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,524,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,525,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,526,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,527,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,528,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,529,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,530,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,531,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,532,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,533,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,534,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,535,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,536,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,537,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,538,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,539,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,540,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,541,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,542,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,543,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,544,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,545,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,546,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,547,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,548,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,549,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,550,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,551,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,552,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,553,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,554,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,555,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,556,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,557,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,558,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,559,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,560,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,561,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,562,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,563,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,564,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,565,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,566,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,567,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,568,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,569,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,570,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,571,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,572,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,573,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,574,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,575,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,576,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,577,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,578,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,579,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,580,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,581,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,582,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,583,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,584,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,585,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,586,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,587,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,588,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,589,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,590,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,591,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,592,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,593,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,594,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,595,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,596,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,597,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,598,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,599,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,600,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,601,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,602,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,603,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,604,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,605,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,606,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,607,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,608,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,609,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,610,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,611,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,612,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,613,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,614,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,615,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,616,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,617,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,618,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,619,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,620,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,621,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,622,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,623,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,624,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,625,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,626,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,627,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,628,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,629,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,630,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,631,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,632,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,633,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,634,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,635,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,636,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,637,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,638,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,639,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,640,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,641,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,642,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,643,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,644,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,645,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,646,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,647,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,648,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,649,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,650,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,651,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,652,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,653,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,654,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,655,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,656,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,657,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,658,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,659,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,660,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,661,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,662,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,663,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,664,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,665,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,666,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,667,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,668,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,669,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,670,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,671,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,672,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,673,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,674,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,675,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,676,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,677,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,678,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,679,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,680,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,681,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,682,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,683,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,684,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,685,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,686,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,687,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,688,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,689,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,690,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,691,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,692,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,693,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,694,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,695,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,696,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,697,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,698,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,699,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,700,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,701,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,702,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,703,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,704,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,705,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,706,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,707,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,708,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,709,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,710,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,711,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,712,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,713,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,714,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,715,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,716,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,717,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,718,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,719,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,720,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,721,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,722,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,723,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,724,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,725,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,726,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,727,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,728,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,729,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,730,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,731,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,732,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,733,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,734,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,735,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,736,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,737,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,738,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,739,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,740,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,741,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,742,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,743,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,744,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,745,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,746,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,747,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,748,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,749,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,750,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,751,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,752,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,753,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,754,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,755,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,756,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,757,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,758,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,759,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,760,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,761,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,762,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,763,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,764,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,765,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,766,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,767,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,768,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,769,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,770,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,771,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,772,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,773,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,774,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,775,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,776,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,777,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,778,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,779,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,780,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,781,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,782,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,783,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,784,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,785,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,786,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,787,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,788,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,789,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,790,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,791,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,792,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,793,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,794,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,795,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,796,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,797,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,798,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,799,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,800,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,801,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,802,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,803,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,804,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,805,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,806,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,807,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,808,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,809,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,810,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,811,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,812,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,813,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,814,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,815,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,816,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,817,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,818,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,819,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,820,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,821,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,822,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,823,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,824,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,825,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,826,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,827,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,828,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,829,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,830,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,831,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,832,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,833,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,834,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,835,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,836,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,837,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,838,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,839,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,840,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,841,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,842,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,843,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,844,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,845,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,846,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,847,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,848,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,849,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,850,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,851,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,852,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,853,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,854,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,855,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,856,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,857,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,858,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,859,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,860,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,861,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,862,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,863,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,864,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,865,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,866,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,867,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,868,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,869,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,870,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,871,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,872,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,873,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,874,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,875,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,876,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,877,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,878,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,879,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,880,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,881,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,882,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,883,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,884,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,885,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,886,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,887,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,888,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,889,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,890,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,891,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,892,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,893,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,894,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,895,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,896,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,897,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,898,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,899,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,900,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,901,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,902,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,903,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,904,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,905,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,906,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,907,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,908,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,909,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,910,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,911,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,912,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,913,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,914,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,915,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,916,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,917,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,918,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,919,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,920,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,921,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,922,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,923,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,924,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,925,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,926,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,927,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,928,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,929,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,930,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,931,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,932,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,933,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,934,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,935,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,936,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,937,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,938,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,939,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,940,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,941,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,942,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,943,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,944,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,945,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,946,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,947,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,948,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,949,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,950,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,951,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,952,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,953,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,954,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,955,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,956,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,957,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,958,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,959,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,960,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,961,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,962,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,963,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,964,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,965,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,966,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,967,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,968,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,969,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,970,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,971,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,972,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,973,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,974,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,975,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,976,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,977,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,978,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,979,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,980,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,981,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,982,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,983,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,984,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,985,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,986,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,987,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,988,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,989,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,990,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,991,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,992,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,993,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,994,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,995,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,996,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,997,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,998,1566
+[INFO] SAMPLE,uart-to-led,task_switch,uart_to_led,999,1566
+[INFO] SAMPLE_HEADER,app,metric,cfg,idx,value_cycles
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,0,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,1,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,2,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,3,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,4,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,5,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,6,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,7,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,8,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,9,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,10,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,11,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,12,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,13,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,14,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,15,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,16,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,17,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,18,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,19,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,20,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,21,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,22,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,23,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,24,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,25,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,26,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,27,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,28,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,29,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,30,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,31,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,32,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,33,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,34,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,35,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,36,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,37,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,38,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,39,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,40,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,41,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,42,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,43,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,44,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,45,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,46,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,47,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,48,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,49,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,50,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,51,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,52,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,53,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,54,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,55,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,56,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,57,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,58,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,59,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,60,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,61,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,62,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,63,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,64,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,65,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,66,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,67,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,68,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,69,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,70,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,71,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,72,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,73,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,74,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,75,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,76,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,77,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,78,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,79,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,80,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,81,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,82,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,83,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,84,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,85,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,86,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,87,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,88,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,89,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,90,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,91,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,92,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,93,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,94,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,95,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,96,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,97,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,98,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,99,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,100,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,101,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,102,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,103,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,104,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,105,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,106,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,107,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,108,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,109,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,110,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,111,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,112,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,113,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,114,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,115,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,116,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,117,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,118,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,119,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,120,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,121,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,122,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,123,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,124,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,125,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,126,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,127,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,128,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,129,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,130,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,131,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,132,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,133,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,134,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,135,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,136,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,137,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,138,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,139,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,140,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,141,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,142,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,143,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,144,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,145,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,146,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,147,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,148,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,149,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,150,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,151,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,152,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,153,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,154,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,155,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,156,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,157,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,158,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,159,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,160,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,161,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,162,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,163,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,164,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,165,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,166,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,167,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,168,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,169,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,170,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,171,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,172,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,173,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,174,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,175,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,176,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,177,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,178,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,179,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,180,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,181,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,182,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,183,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,184,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,185,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,186,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,187,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,188,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,189,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,190,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,191,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,192,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,193,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,194,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,195,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,196,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,197,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,198,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,199,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,200,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,201,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,202,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,203,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,204,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,205,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,206,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,207,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,208,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,209,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,210,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,211,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,212,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,213,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,214,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,215,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,216,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,217,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,218,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,219,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,220,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,221,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,222,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,223,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,224,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,225,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,226,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,227,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,228,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,229,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,230,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,231,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,232,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,233,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,234,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,235,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,236,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,237,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,238,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,239,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,240,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,241,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,242,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,243,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,244,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,245,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,246,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,247,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,248,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,249,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,250,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,251,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,252,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,253,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,254,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,255,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,256,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,257,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,258,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,259,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,260,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,261,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,262,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,263,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,264,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,265,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,266,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,267,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,268,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,269,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,270,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,271,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,272,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,273,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,274,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,275,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,276,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,277,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,278,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,279,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,280,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,281,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,282,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,283,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,284,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,285,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,286,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,287,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,288,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,289,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,290,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,291,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,292,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,293,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,294,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,295,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,296,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,297,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,298,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,299,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,300,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,301,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,302,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,303,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,304,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,305,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,306,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,307,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,308,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,309,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,310,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,311,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,312,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,313,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,314,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,315,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,316,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,317,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,318,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,319,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,320,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,321,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,322,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,323,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,324,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,325,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,326,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,327,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,328,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,329,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,330,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,331,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,332,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,333,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,334,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,335,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,336,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,337,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,338,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,339,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,340,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,341,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,342,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,343,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,344,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,345,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,346,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,347,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,348,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,349,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,350,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,351,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,352,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,353,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,354,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,355,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,356,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,357,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,358,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,359,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,360,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,361,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,362,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,363,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,364,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,365,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,366,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,367,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,368,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,369,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,370,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,371,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,372,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,373,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,374,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,375,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,376,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,377,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,378,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,379,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,380,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,381,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,382,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,383,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,384,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,385,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,386,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,387,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,388,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,389,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,390,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,391,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,392,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,393,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,394,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,395,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,396,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,397,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,398,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,399,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,400,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,401,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,402,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,403,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,404,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,405,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,406,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,407,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,408,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,409,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,410,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,411,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,412,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,413,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,414,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,415,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,416,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,417,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,418,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,419,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,420,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,421,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,422,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,423,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,424,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,425,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,426,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,427,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,428,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,429,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,430,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,431,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,432,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,433,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,434,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,435,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,436,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,437,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,438,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,439,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,440,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,441,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,442,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,443,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,444,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,445,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,446,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,447,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,448,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,449,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,450,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,451,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,452,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,453,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,454,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,455,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,456,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,457,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,458,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,459,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,460,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,461,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,462,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,463,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,464,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,465,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,466,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,467,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,468,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,469,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,470,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,471,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,472,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,473,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,474,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,475,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,476,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,477,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,478,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,479,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,480,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,481,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,482,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,483,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,484,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,485,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,486,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,487,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,488,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,489,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,490,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,491,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,492,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,493,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,494,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,495,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,496,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,497,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,498,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,499,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,500,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,501,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,502,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,503,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,504,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,505,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,506,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,507,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,508,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,509,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,510,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,511,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,512,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,513,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,514,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,515,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,516,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,517,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,518,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,519,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,520,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,521,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,522,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,523,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,524,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,525,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,526,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,527,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,528,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,529,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,530,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,531,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,532,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,533,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,534,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,535,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,536,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,537,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,538,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,539,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,540,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,541,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,542,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,543,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,544,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,545,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,546,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,547,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,548,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,549,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,550,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,551,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,552,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,553,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,554,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,555,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,556,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,557,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,558,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,559,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,560,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,561,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,562,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,563,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,564,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,565,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,566,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,567,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,568,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,569,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,570,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,571,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,572,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,573,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,574,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,575,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,576,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,577,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,578,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,579,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,580,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,581,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,582,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,583,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,584,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,585,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,586,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,587,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,588,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,589,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,590,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,591,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,592,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,593,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,594,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,595,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,596,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,597,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,598,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,599,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,600,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,601,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,602,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,603,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,604,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,605,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,606,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,607,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,608,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,609,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,610,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,611,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,612,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,613,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,614,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,615,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,616,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,617,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,618,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,619,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,620,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,621,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,622,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,623,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,624,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,625,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,626,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,627,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,628,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,629,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,630,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,631,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,632,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,633,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,634,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,635,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,636,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,637,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,638,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,639,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,640,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,641,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,642,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,643,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,644,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,645,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,646,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,647,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,648,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,649,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,650,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,651,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,652,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,653,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,654,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,655,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,656,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,657,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,658,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,659,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,660,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,661,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,662,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,663,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,664,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,665,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,666,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,667,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,668,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,669,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,670,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,671,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,672,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,673,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,674,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,675,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,676,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,677,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,678,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,679,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,680,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,681,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,682,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,683,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,684,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,685,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,686,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,687,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,688,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,689,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,690,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,691,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,692,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,693,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,694,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,695,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,696,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,697,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,698,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,699,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,700,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,701,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,702,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,703,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,704,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,705,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,706,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,707,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,708,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,709,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,710,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,711,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,712,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,713,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,714,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,715,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,716,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,717,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,718,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,719,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,720,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,721,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,722,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,723,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,724,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,725,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,726,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,727,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,728,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,729,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,730,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,731,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,732,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,733,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,734,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,735,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,736,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,737,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,738,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,739,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,740,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,741,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,742,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,743,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,744,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,745,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,746,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,747,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,748,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,749,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,750,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,751,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,752,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,753,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,754,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,755,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,756,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,757,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,758,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,759,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,760,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,761,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,762,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,763,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,764,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,765,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,766,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,767,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,768,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,769,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,770,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,771,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,772,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,773,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,774,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,775,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,776,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,777,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,778,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,779,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,780,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,781,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,782,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,783,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,784,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,785,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,786,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,787,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,788,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,789,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,790,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,791,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,792,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,793,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,794,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,795,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,796,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,797,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,798,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,799,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,800,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,801,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,802,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,803,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,804,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,805,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,806,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,807,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,808,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,809,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,810,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,811,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,812,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,813,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,814,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,815,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,816,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,817,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,818,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,819,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,820,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,821,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,822,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,823,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,824,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,825,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,826,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,827,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,828,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,829,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,830,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,831,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,832,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,833,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,834,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,835,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,836,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,837,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,838,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,839,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,840,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,841,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,842,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,843,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,844,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,845,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,846,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,847,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,848,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,849,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,850,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,851,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,852,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,853,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,854,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,855,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,856,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,857,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,858,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,859,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,860,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,861,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,862,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,863,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,864,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,865,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,866,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,867,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,868,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,869,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,870,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,871,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,872,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,873,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,874,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,875,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,876,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,877,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,878,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,879,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,880,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,881,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,882,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,883,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,884,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,885,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,886,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,887,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,888,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,889,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,890,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,891,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,892,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,893,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,894,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,895,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,896,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,897,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,898,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,899,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,900,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,901,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,902,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,903,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,904,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,905,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,906,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,907,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,908,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,909,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,910,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,911,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,912,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,913,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,914,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,915,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,916,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,917,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,918,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,919,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,920,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,921,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,922,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,923,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,924,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,925,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,926,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,927,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,928,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,929,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,930,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,931,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,932,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,933,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,934,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,935,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,936,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,937,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,938,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,939,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,940,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,941,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,942,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,943,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,944,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,945,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,946,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,947,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,948,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,949,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,950,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,951,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,952,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,953,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,954,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,955,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,956,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,957,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,958,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,959,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,960,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,961,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,962,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,963,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,964,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,965,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,966,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,967,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,968,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,969,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,970,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,971,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,972,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,973,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,974,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,975,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,976,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,977,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,978,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,979,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,980,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,981,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,982,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,983,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,984,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,985,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,986,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,987,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,988,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,989,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,990,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,991,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,992,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,993,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,994,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,995,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,996,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,997,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,998,626
+[INFO] SAMPLE,uart-to-led,irq_latency,swi_uart,999,626
+[INFO] BENCH_END,uart-to-led
