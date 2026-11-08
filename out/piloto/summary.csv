@@ -1,0 +1,17 @@
+os,app,metric,cfg,unit,runs,mean_of_means,median_of_means,std_of_means,worst_max,mean_of_std,p50_of_p99,worst_p99
+ariel-os,blinky,jitter,100ms,cycles,5,0.00,0.00,0.00,180,98.60,180.00,180
+ariel-os,blinky,jitter,10ms,cycles,5,0.00,0.00,0.00,180,99.00,180.00,180
+ariel-os,blinky,jitter,1ms,cycles,5,0.00,0.00,0.00,315,172.00,315.00,315
+ariel-os,iot,irq_latency,swi_drdy,cycles,5,720.00,720.00,0.00,720,0.00,720.00,720
+ariel-os,iot,jitter,sensor_10ms,cycles,5,0.00,0.00,0.00,501,192.20,417.00,417
+ariel-os,iot,proc_exec,avg8_alarm,cycles,5,347.00,347.00,0.00,353,1.00,351.00,351
+ariel-os,iot,task_switch,isr_to_thread,cycles,5,2006.00,2006.00,0.00,2006,0.00,2006.00,2006
+freertos,blinky,jitter,100ms,cycles,5,0.00,0.00,0.00,0,0.00,0.00,0
+freertos,blinky,jitter,10ms,cycles,5,0.00,0.00,0.00,0,0.00,0.00,0
+freertos,blinky,jitter,1ms,cycles,5,0.00,0.00,0.00,0,0.00,0.00,0
+freertos,iot,irq_latency,swi_drdy,cycles,5,274.00,274.00,0.00,274,0.00,274.00,274
+freertos,iot,jitter,sensor_10ms,cycles,5,0.00,0.00,0.00,301,161.00,157.00,157
+freertos,iot,proc_exec,avg8_alarm,cycles,5,255.00,255.00,0.00,258,1.00,258.00,258
+freertos,iot,task_switch,isr_to_thread,cycles,5,820.00,820.00,0.00,820,0.00,820.00,820
+freertos,uart-to-led,irq_latency,swi_uart,cycles,5,283.20,283.00,0.45,770,12.40,283.00,283
+freertos,uart-to-led,task_switch,uart_to_led,cycles,5,1589.60,1590.00,1.14,2516,54.20,1586.00,1586

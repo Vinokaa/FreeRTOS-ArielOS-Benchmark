@@ -1,27 +1,25 @@
-//! Fonte única de timestamps, em µs (32 bits, com wrap).
+//! Fonte única de timestamps: ciclos de CPU (registrador CCOUNT do Xtensa, 240 MHz).
 //!
-//! O ESP32 (Xtensa) não tem DWT; usamos `esp_hal::time::Instant` (resolução de 1 µs).
-//! Timestamps de 32 bits evitam atômicos de 64 bits (inexistentes em Xtensa) e dão
-//! ~71 min de faixa; sempre calcule intervalos com `elapsed`/`delta_i32` (wrapping).
+//! O ESP32 não tem o DWT do ARM usado por Wang et al.; o CCOUNT é o equivalente
+//! (1 ciclo ≈ 4,17 ns). O contador tem 32 bits e dá a volta a cada ~17,9 s; sempre
+//! calcule intervalos com `elapsed`/`delta_i32` (wrapping). O Ariel OS roda o ESP32
+//! em um único núcleo, então todas as leituras vêm do mesmo contador.
 
-#[cfg(feature = "esp-clock")]
+/// Frequência fixa da CPU (o Ariel OS configura `CpuClock::max()` = 240 MHz no ESP32).
+pub const CPU_HZ: u32 = 240_000_000;
+/// Ciclos por milissegundo.
+pub const CYCLES_PER_MS: u32 = CPU_HZ / 1000;
+
+/// Leitura do contador de ciclos (CCOUNT).
 #[inline(always)]
-pub fn now_us() -> u32 {
-    esp_hal::time::Instant::now()
-        .duration_since_epoch()
-        .as_micros() as u32
+pub fn now_cycles() -> u32 {
+    let c: u32;
+    // SAFETY: só lê um registrador especial, sem efeitos colaterais.
+    unsafe { core::arch::asm!("rsr.ccount {0}", out(reg) c, options(nomem, nostack)) };
+    c
 }
 
-#[cfg(not(feature = "esp-clock"))]
-#[inline(always)]
-pub fn now_us() -> u32 {
-    ariel_os::time::Instant::now().as_micros() as u32
-}
-
-/// Resolução nominal do relógio (µs).
-pub const RESOLUTION_US: u32 = 1;
-
-/// Intervalo `to − from` (µs), tolerante a wrap de 32 bits.
+/// Intervalo `to − from` (ciclos), tolerante a wrap de 32 bits.
 #[inline(always)]
 pub fn elapsed(from: u32, to: u32) -> u32 {
     to.wrapping_sub(from)

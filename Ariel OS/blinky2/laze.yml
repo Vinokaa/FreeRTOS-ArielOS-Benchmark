@@ -2,3 +2,4 @@ apps:
   - name: blinky2
     selects:
       - sw/threading   # liga o escalonador de threads preemptivas
+      - log            # logs em texto (não defmt), legíveis por tools/capture.py

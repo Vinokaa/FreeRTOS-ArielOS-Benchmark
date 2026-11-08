@@ -2,7 +2,7 @@
 //!
 //! Métrica embutida: JITTER PERIÓDICO.
 //!   J_i = (C_i − C_{i−1}) − período_esperado
-//! onde C_i é o timestamp (µs, relógio de hardware via esp-hal) logo após o despertar da
+//! onde C_i é o contador de ciclos da CPU (CCOUNT, 240 MHz) logo após o despertar da
 //! tarefa. O deadline é absoluto (`sleep_until`, análogo a `vTaskDelayUntil` do FreeRTOS),
 //! portanto o erro de um ciclo não se acumula no seguinte.
 //!
@@ -45,7 +45,7 @@ fn blinky() {
 
     for (i, &p_ms) in PERIODS_MS.iter().enumerate() {
         let period = Duration::from_millis(p_ms as u64);
-        let period_us = (p_ms * 1000) as i32;
+        let expected = (p_ms * clock::CYCLES_PER_MS) as i32;
 
         let mut col = Collector::new();
         let mut led_on = false;
@@ -54,7 +54,7 @@ fn blinky() {
 
         while !col.is_full() {
             thread::sleep_until(deadline);
-            let t = clock::now_us(); // timestamp ANTES de qualquer trabalho da tarefa
+            let t = clock::now_cycles(); // timestamp ANTES de qualquer trabalho da tarefa
 
             // Carga de trabalho da aplicação (fora do caminho do timestamp).
             led_on = !led_on;
@@ -62,7 +62,7 @@ fn blinky() {
 
             // Instrumentação: apenas um inteiro gravado no buffer.
             if let Some(p) = prev {
-                col.push(clock::delta_i32(p, t) - period_us);
+                col.push(clock::delta_i32(p, t) - expected);
             }
             prev = Some(t);
             deadline += period;
@@ -81,4 +81,4 @@ fn blinky() {
         on = !on;
         LED.set(on);
     }
-}
+}

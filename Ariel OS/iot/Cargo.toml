@@ -13,3 +13,7 @@ esp-hal = { version = "~1.0.0", default-features = false, features = ["unstable"
 unexpected_cfgs = { level = "warn", check-cfg = [
   'cfg(context, values(any()))',
 ] }
+
+[features]
+# Suprime só a linha LOG periódica (a exportação das amostras continua).
+quiet = []

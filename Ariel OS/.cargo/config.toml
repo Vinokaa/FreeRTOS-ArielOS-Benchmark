@@ -1,1 +1,7 @@
 include = ["../build/imports/ariel-os/ariel-os-cargo.toml"]
+
+# Equivalente ao CONFIG_COMPILER_OPTIMIZATION_PERF (-O2) do ESP-IDF usado no FreeRTOS.
+# Sobrescreve o opt-level = "s" do ariel-os-cargo.toml (valores deste arquivo têm
+# precedência sobre os do arquivo incluído).
+[profile.release]
+opt-level = 2

@@ -30,6 +30,7 @@ impl Summary {
     }
 }
 
+#[derive(Clone)]
 pub struct Collector {
     buf: [i32; N],
     len: usize,
@@ -108,4 +109,4 @@ fn isqrt(n: u64) -> u32 {
         y = (x + n / x) / 2;
     }
     x as u32
-}
+}
