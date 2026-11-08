@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Bateria de testes do UART-to-LED (FreeRTOS x Ariel OS).
+"""Coleta legada de task-switch do UART-to-LED (FreeRTOS x Ariel OS).
+
+Para o benchmark completo (task-switch + interrupção, 5 descartes e 1000
+amostras válidas), use tools/capture.py e tools/collect.py na raiz. Este
+script só lê respostas R e não valida o protocolo BENCH_BEGIN/SAMPLE/BENCH_END.
 
 Protocolo esperado do firmware (igual nos dois RTOS):
   - no boot, imprime uma linha "READY";
@@ -7,10 +11,10 @@ Protocolo esperado do firmware (igual nos dois RTOS):
     onde <ciclos> é a latência de task-switch medida com o contador de ciclos da CPU.
 
 Uso:
-  # piloto (30 amostras, como no artigo)
+  # teste rápido (30 amostras; não segue a amostragem de Wang)
   python3 bench_uart_to_led.py run --rtos ariel --port /dev/ttyUSB0 --runs 1 --samples 30 --out piloto_ariel.csv
 
-  # coleta definitiva: 10 execuções (com reset da placa entre elas) x 200 amostras = 2000
+  # exemplo legado: 10 execuções x 200 amostras (não segue a amostragem de Wang)
   python3 bench_uart_to_led.py run --rtos ariel --port /dev/ttyUSB0 --runs 10 --samples 200 --out ariel.csv
 
   # resumo estatístico de um ou mais CSVs

@@ -1,6 +1,7 @@
 """Host regression checks for sampling, serial capture and cross-RTOS analysis."""
 import importlib.util
 import io
+import itertools
 from collections import Counter
 from pathlib import Path
 import shutil
@@ -9,7 +10,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import call, patch
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -231,12 +232,14 @@ int main(void) {
 
 class CaptureTests(unittest.TestCase):
     def test_uart_requires_irq_samples_as_well_as_task_switch(self):
-        lines = sample_log("uart-to-led")
-        capture.validate(lines, "uart-to-led", "freertos")
-        old_protocol = [line for line in lines if not line.startswith(
-            "SAMPLE,uart-to-led,irq_latency,")]
-        with self.assertRaisesRegex(ValueError, "unexpected metric groups"):
-            capture.validate(old_protocol, "uart-to-led", "freertos")
+        for os_label in ("freertos", "ariel-os"):
+            with self.subTest(os=os_label):
+                lines = sample_log("uart-to-led", os_label)
+                capture.validate(lines, "uart-to-led", os_label)
+                old_protocol = [line for line in lines if not line.startswith(
+                    "SAMPLE,uart-to-led,irq_latency,")]
+                with self.assertRaisesRegex(ValueError, "unexpected metric groups"):
+                    capture.validate(old_protocol, "uart-to-led", os_label)
 
     def test_complete_iot_and_blinky_on_both_rtos(self):
         for os_label in ("freertos", "ariel-os"):
@@ -265,9 +268,20 @@ class CaptureTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, message):
                     capture.validate(bad, "blinky", os_label)
 
-    def test_ariel_uart_is_not_a_capture_target(self):
-        self.assertNotIn(("ariel-os", "uart-to-led"), capture.EXPECTED)
-        self.assertIn(("ariel-os", "uart-to-led"), capture.NOT_SUPPORTED)
+    def test_ariel_uart_rejects_legacy_response_only_log(self):
+        with self.assertRaisesRegex(ValueError, "BENCH_BEGIN missing"):
+            capture.validate(["READY", "R,0,1,480"], "uart-to-led", "ariel-os")
+
+    def test_uart_rejects_missing_duplicate_and_lost_samples_on_both_rtos(self):
+        for os_label in ("freertos", "ariel-os"):
+            lines = sample_log("uart-to-led", os_label)
+            first = next(i for i, line in enumerate(lines) if line.startswith("SAMPLE,"))
+            for bad in (lines[:-1], lines[:first] + lines[first + 1:],
+                        lines[:first + 1] + lines[first:],
+                        [line.replace("events_lost,0", "events_lost,1") for line in lines]):
+                with self.subTest(os=os_label):
+                    with self.assertRaises(ValueError):
+                        capture.validate(bad, "uart-to-led", os_label)
 
     def test_timeout_preserves_partial_serial_log(self):
         class Serial:
@@ -330,9 +344,11 @@ class CaptureTests(unittest.TestCase):
         class Serial:
             dtr = rts = False
 
-            def __init__(self):
-                self.pending = [sample_log("uart-to-led")[0], "READY"]
+            def __init__(self, os_label):
+                self.os_label = os_label
+                self.pending = [sample_log("uart-to-led", os_label)[0], "READY"]
                 self.commands = []
+                self.exports = 0
 
             def reset_input_buffer(self):
                 pass
@@ -342,21 +358,57 @@ class CaptureTests(unittest.TestCase):
 
             def write(self, data):
                 if data == b"b":
-                    self.pending += sample_log("uart-to-led")[1:]
+                    self.exports += 1
+                    self.pending += sample_log("uart-to-led", self.os_label)[1:]
                 else:
                     seq = len(self.commands)
                     self.commands.append(data)
                     self.pending.append(f"R,{seq},{data.decode()},480")
 
-        serial = Serial()
-        output = io.BytesIO()
-        with patch.object(capture.time, "sleep"):
-            capture.capture_run(serial, output, "uart-to-led", "freertos", 500, 30)
-        self.assertEqual(len(serial.commands), 1005)
-        self.assertEqual(serial.commands[:3], [b"1", b"0", b"t"])
-        self.assertIn(b"BENCH_END,uart-to-led", output.getvalue())
-        self.assertEqual(output.getvalue().count(b"SAMPLE,uart-to-led,task_switch,"), 1000)
-        self.assertEqual(output.getvalue().count(b"SAMPLE,uart-to-led,irq_latency,"), 1000)
+        for os_label in ("freertos", "ariel-os"):
+            with self.subTest(os=os_label):
+                serial = Serial(os_label)
+                output = io.BytesIO()
+                with patch.object(capture.time, "sleep") as sleep:
+                    capture.capture_run(serial, output, "uart-to-led", os_label, 500, 30)
+                self.assertEqual(len(serial.commands), 1005)
+                self.assertEqual(serial.commands, [b"1", b"0", b"t"] * 335)
+                self.assertEqual(serial.exports, 1)
+                self.assertEqual(sleep.call_args_list.count(call(0.5)), 1005)
+                self.assertIn(b"BENCH_END,uart-to-led", output.getvalue())
+                self.assertEqual(output.getvalue().count(b"SAMPLE,uart-to-led,task_switch,"), 1000)
+                self.assertEqual(output.getvalue().count(b"SAMPLE,uart-to-led,irq_latency,"), 1000)
+
+    def test_uart_missing_reply_preserves_partial_log_without_export(self):
+        class Serial:
+            dtr = rts = False
+
+            def __init__(self, os_label):
+                self.pending = [sample_log("uart-to-led", os_label)[0], "READY"]
+                self.commands = []
+
+            def reset_input_buffer(self):
+                pass
+
+            def readline(self):
+                return (self.pending.pop(0) + "\n").encode() if self.pending else b""
+
+            def write(self, data):
+                self.commands.append(data)
+                if len(self.commands) == 1:
+                    self.pending.append("R,0,1,480")
+
+        for os_label in ("freertos", "ariel-os"):
+            with self.subTest(os=os_label):
+                serial = Serial(os_label)
+                output = io.BytesIO()
+                with patch.object(capture.time, "sleep"), \
+                        patch.object(capture.time, "monotonic", side_effect=itertools.count()):
+                    with self.assertRaises(TimeoutError):
+                        capture.capture_run(serial, output, "uart-to-led", os_label, 0, 10)
+                self.assertEqual(serial.commands, [b"1", b"0"])
+                self.assertIn(b"R,0,1,480", output.getvalue())
+                self.assertNotIn(b"BENCH_END", output.getvalue())
 
 
 class AnalysisTests(unittest.TestCase):
@@ -371,20 +423,22 @@ class AnalysisTests(unittest.TestCase):
             work = Path(directory)
             paths = []
             for os_label, style in (("freertos", list), ("ariel-os", ariel_style)):
-                for app in ("iot", "blinky"):
+                for app in ("iot", "blinky", "uart-to-led"):
                     path = work / f"{os_label}_{app}.log"
                     path.write_text("\n".join(style(sample_log(app, os_label))))
                     paths.append(path)
             out = work / "out"
             done = self.run_collect(paths, out)
             self.assertEqual(done.returncode, 0, done.stderr)
-            for name, count in (("samples.csv", 14000), ("results.csv", 14),
-                                ("summary.csv", 14), ("compare.csv", 7)):
+            for name, count in (("samples.csv", 18000), ("results.csv", 18),
+                                ("summary.csv", 18), ("compare.csv", 9)):
                 with (out / name).open() as stream:
                     rows = list(csv.DictReader(stream))
                 self.assertEqual(len(rows), count, name)
             self.assertTrue(all(row["ariel/freertos_p99"] == "1.000" for row in rows))
             self.assertTrue(all(row["unit"] == "cycles" for row in rows))
+            self.assertEqual({(row["metric"], row["cfg"]) for row in rows
+                              if row["app"] == "uart-to-led"}, capture.UART)
             for cfg in ("blinky_1ms", "blinky_10ms", "blinky_100ms", "iot_sensor_10ms"):
                 with (out / f"value_counts_{cfg}.csv").open() as stream:
                     vc = list(csv.DictReader(stream))

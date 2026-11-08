@@ -2899,8 +2899,11 @@ version = "0.1.0"
 dependencies = [
  "ariel-os",
  "ariel-os-boards",
+ "bench-common",
+ "critical-section",
  "embassy-sync 0.7.2",
  "embedded-io-async 0.6.1",
+ "esp-hal",
 ]
 
 [[package]]

@@ -4,7 +4,7 @@ Benchmark comparativo entre FreeRTOS (C) e Ariel OS (Rust) na ESP32-WROOM-32, co
 aplicações de complexidade crescente (Blinky, UART-to-LED e IoT). As métricas são jitter
 periódico, latência de interrupção, latência de troca de tarefa e footprint de Flash/RAM.
 O protocolo de medição segue Wang et al. Concurrency Frameworks for Embedded Systems: A
-Comparative Evaluation of FreeRTOS, RTIC, and Embassy (2026): 1005 amostras por métrica, das quais as 5
+Comparative Evaluation of FreeRTOS, RTIC, and Embassy: 1005 amostras por métrica, das quais as 5
 primeiras são descartadas, em **ciclos de CPU** (registrador CCOUNT, 240 MHz).
 
 ## Estrutura
@@ -25,8 +25,13 @@ primeiras são descartadas, em **ciclos de CPU** (registrador CCOUNT, 240 MHz).
 | Aplicação | FreeRTOS | Ariel OS |
 | --- | --- | --- |
 | Blinky | jitter 1/10/100 ms | jitter 1/10/100 ms |
-| UART-to-LED | task-switch, latência de interrupção | task-switch (via `bech_uart_to_led.py`) |
+| UART-to-LED | task-switch, latência de interrupção | task-switch, latência de interrupção |
 | IoT | jitter 10 ms, interrupção, task-switch, tempo de processamento | jitter 10 ms, interrupção, task-switch, tempo de processamento |
+
+O UART-to-LED dos dois sistemas usa o mesmo protocolo de captura. A metodologia,
+os limites da comparação com Wang e a validação sem placa estão no
+[README do UART Ariel OS](Ariel%20OS/uart-to-led/README.md). O jitter periódico
+não se aplica a essa aplicação, que é acionada por comandos externos.
 
 ## 1. Instalação (uma vez)
 
@@ -156,6 +161,10 @@ python3 tools/capture.py --os freertos --app blinky --port /dev/ttyUSB0 --runs 5
 # com o firmware FreeRTOS/uart-to-led gravado (o script envia 1005 comandos)
 python3 tools/capture.py --os freertos --app uart-to-led --port /dev/ttyUSB0 --runs 5 \
   --interval-ms 500 --out runs/piloto/freertos-uart
+
+# com o firmware "Ariel OS/uart-to-led" gravado
+python3 tools/capture.py --os ariel-os --app uart-to-led --port /dev/ttyUSB0 --runs 5 \
+  --interval-ms 500 --out runs/piloto/ariel-uart
 
 # com o firmware "Ariel OS/iot" gravado
 python3 tools/capture.py --os ariel-os --app iot --port /dev/ttyUSB0 --runs 5 --out runs/piloto/ariel-iot

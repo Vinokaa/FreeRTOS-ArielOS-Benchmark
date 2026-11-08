@@ -1,4 +1,4 @@
-//! Infraestrutura comum de medição para as aplicações Blinky e IoT.
+//! Infraestrutura comum de medição para as aplicações Blinky, UART-to-LED e IoT.
 //!
 //! Protocolo (igual ao de Wang et al., 2026): contador de ciclos da CPU, 1005 amostras
 //! brutas por experimento, 5 descartadas (aquecimento); as 1000 restantes são exportadas

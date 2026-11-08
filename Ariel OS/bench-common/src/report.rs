@@ -12,6 +12,7 @@ use ariel_os::{
     thread,
     time::{Duration, Instant},
 };
+use core::fmt::{self, Write};
 
 use crate::{
     clock,
@@ -56,7 +57,37 @@ pub fn info_kv(app: &str, key: &str, value: u32) {
     info!("INFO,{},{},{}", app, key, value);
 }
 
+/// Mesmo protocolo por um transporte controlado pela aplicação. O UART-to-LED
+/// já possui UART0: não misture o logger global com o driver dessa UART.
+/// Como `begin`, deve ser chamado de uma thread, antes da coleta.
+pub fn begin_to(out: &mut impl Write, app: &str) -> fmt::Result {
+    writeln!(
+        out,
+        "BENCH_BEGIN,{},ariel-os,{},unit=cycles,cpu_hz={},n={},warmup={}",
+        app, BENCH_VERSION, clock::CPU_HZ, N, WARMUP
+    )?;
+    info_to(out, app, "cpu_hz", clock::CPU_HZ)?;
+    info_to(out, app, "ccount_per_100ms", ccount_per_100ms())
+}
+
+pub fn info_to(out: &mut impl Write, app: &str, key: &str, value: u32) -> fmt::Result {
+    writeln!(out, "INFO,{},{},{}", app, key, value)
+}
+
+pub fn end_to(out: &mut impl Write, app: &str) -> fmt::Result {
+    writeln!(out, "BENCH_END,{}", app)
+}
+
 impl Collector {
+    /// Exporta sem copiar o buffer e sem usar o logger global.
+    pub fn finish_to(&self, out: &mut impl Write, app: &str, metric: &str, cfg: &str) -> fmt::Result {
+        writeln!(out, "SAMPLE_HEADER,app,metric,cfg,idx,value_cycles")?;
+        for (i, v) in self.samples().iter().enumerate() {
+            writeln!(out, "SAMPLE,{},{},{},{},{}", app, metric, cfg, i, v)?;
+        }
+        Ok(())
+    }
+
     /// Fecha o experimento: despeja as amostras brutas (ordem de coleta) como CSV.
     /// As estatísticas são calculadas no host (`tools/collect.py`).
     pub fn finish(&self, app: &str, metric: &str, cfg: &str) {

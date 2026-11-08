@@ -33,8 +33,9 @@ do experimento de Wang. Não mede a chegada elétrica do byte nem a interrupçã
 de recepção do driver UART. A notificação confirma a conclusão da ISR e fica
 fora da janela medida de interrupção; a SWI termina antes da janela de
 task-switch. Não há exportação durante a coleta, apenas as respostas `R`.
-O UART-to-LED do Ariel OS não exporta `SAMPLE` nem mede interrupção; a
-comparação de task-switch com ele usa a saída `R` e o `bech_uart_to_led.py`.
+O [UART-to-LED do Ariel OS](../../Ariel%20OS/uart-to-led/README.md) também
+exporta os mesmos grupos `SAMPLE` e mede SWI2. A captura e a comparação dos
+dois sistemas usam `tools/capture.py` e `tools/collect.py`.
 
 Os defaults fixam CPU em 240 MHz, tick em 1 ms, otimização de desempenho e
 execução em um núcleo. Confira a configuração gerada se já houver `sdkconfig`.
@@ -57,7 +58,12 @@ Substitua `PORTA` pela porta serial da placa, por exemplo `/dev/ttyUSB0` ou `/de
 
 ## Benchmark comparável ao Ariel OS
 
-Use o mesmo script que acompanha a implementação Ariel. Para mudar a entrada do terminal a cada 500 ms, defina `--interval 500`; o intervalo pertence ao gerador de carga, não ao firmware, para que a medição de troca de tarefa não inclua uma espera artificial.
+Para a comparação completa, use `tools/capture.py` nos dois sistemas, conforme
+os comandos abaixo. O intervalo de 500 ms pertence ao gerador de carga; ele
+não entra na medição de troca de tarefa.
+
+O script legado que acompanha o Ariel continua compatível com as respostas
+`R`, mas coleta apenas task-switch e não valida o experimento completo:
 
 ```sh
 python3 "Ariel OS/uart-to-led/tools/bech_uart_to_led.py" run \
@@ -80,7 +86,10 @@ use `--warmup 5 --samples 1000`. Para 30 execuções piloto com exportação
 ```sh
 python3 tools/capture.py --os freertos --app uart-to-led --port PORTA \
   --runs 30 --interval-ms 500 --out runs/freertos-uart-piloto
-python3 tools/collect.py runs/freertos-uart-piloto/*.log \
+# Depois de gravar o firmware Ariel OS UART na mesma placa:
+python3 tools/capture.py --os ariel-os --app uart-to-led --port PORTA \
+  --runs 30 --interval-ms 500 --out runs/ariel-uart-piloto
+python3 tools/collect.py runs/freertos-uart-piloto/*.log runs/ariel-uart-piloto/*.log \
   -o out/uart
 python3 tools/footprint.py FreeRTOS/uart-to-led/build/uart_to_led.elf \
   --app uart-to-led --os freertos

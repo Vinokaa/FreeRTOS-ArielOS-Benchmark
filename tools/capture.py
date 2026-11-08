@@ -24,14 +24,10 @@ EXPECTED = {
     ("freertos", "uart-to-led"): UART,
     ("freertos", "iot"): IOT,
     ("ariel-os", "blinky"): BLINKY,
+    ("ariel-os", "uart-to-led"): UART,
     ("ariel-os", "iot"): IOT,
 }
 APPS = sorted({app for _, app in EXPECTED})
-NOT_SUPPORTED = {
-    ("ariel-os", "uart-to-led"):
-        'Ariel OS uart-to-led does not use bench-common; collect it with '
-        '"Ariel OS/uart-to-led/tools/bech_uart_to_led.py".',
-}
 # CCOUNT cycles in 100 ms of the independent 1 us timer; reject a clock off by >1%.
 CCOUNT_100MS = CPU_HZ // 10
 CCOUNT_TOLERANCE = CCOUNT_100MS // 100
@@ -125,9 +121,6 @@ def main():
     parser.add_argument("--interval-ms", type=float, default=500, help="UART command pacing")
     parser.add_argument("--timeout", type=float, default=900, help="seconds per complete run")
     args = parser.parse_args()
-    key = (args.os_label, args.app)
-    if key in NOT_SUPPORTED:
-        parser.error(NOT_SUPPORTED[key])
     if args.runs < 1 or args.interval_ms < 0 or args.timeout <= 0:
         parser.error("runs/timeout must be positive and interval must be nonnegative")
     import serial
