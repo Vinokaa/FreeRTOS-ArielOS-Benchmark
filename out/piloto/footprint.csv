@@ -2,5 +2,5 @@ os,app,code_B,rodata_B,rwdata_B,zidata_B,flash_total_B,ram_static_B,flash_code_B
 freertos,blinky,75477,24568,7646,6059,107691,48396,40786,34691,FreeRTOS/blinky/build/blinky.elf
 freertos,uart-to-led,92785,30092,7994,10163,130871,57156,53786,38999,FreeRTOS/uart-to-led/build/uart_to_led.elf
 freertos,iot,77441,25080,7646,18123,110167,60944,42266,35175,FreeRTOS/iot/build/iot.elf
-ariel-os,blinky,33171,11812,6968,288408,51951,300940,27607,5564,Ariel OS/build/bin/espressif-esp32-devkitc/cargo/xtensa-esp32-none-elf/release/blinky2
-ariel-os,iot,35271,11980,6988,288384,54239,301060,29583,5688,Ariel OS/build/bin/espressif-esp32-devkitc/cargo/xtensa-esp32-none-elf/release/iot
+ariel-os,blinky,43667,11396,6984,288392,62047,301488,37555,6112,Ariel OS/build/bin/espressif-esp32-devkitc/cargo/xtensa-esp32-none-elf/release/blinky2
+ariel-os,iot,47663,11552,7004,288368,66219,301708,41327,6336,Ariel OS/build/bin/espressif-esp32-devkitc/cargo/xtensa-esp32-none-elf/release/iot

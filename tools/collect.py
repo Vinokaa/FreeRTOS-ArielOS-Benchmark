@@ -16,13 +16,20 @@ Saídas em out/:
                    das médias, pior máximo, média dos desvios, P50 e pior dos P99
     compare.csv    Ariel OS × FreeRTOS lado a lado (média das médias, P99, razões)
     footprint.csv  linhas FOOTPRINT (saída de footprint.py), se presentes nos arquivos
+    value_counts_<app>_<cfg>.csv
+                   frequência de cada valor (value_counts) das amostras de jitter, somando
+                   todas as execuções de cada sistema: um arquivo por configuração
+                   (blinky 1ms/10ms/100ms e iot sensor_10ms)
+    jitter_iot_sensor_10ms.png
+                   gráfico de barras (matplotlib) da distribuição do jitter do IoT (% das
+                   amostras por faixa de valor), FreeRTOS em azul e Ariel OS em laranja
 """
 import argparse
 import csv
 import math
 import statistics
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -91,6 +98,94 @@ def results_from_samples(samples, results):
     return out
 
 
+def write_value_counts(samples, out, metric="jitter"):
+    """Um CSV de value_counts por (app, cfg) da métrica, com os dois sistemas lado a lado.
+
+    Colunas: os, value, count, pct (percentual dentro do sistema), runs, unit.
+    Devolve os nomes dos arquivos gerados.
+    """
+    counts = defaultdict(lambda: defaultdict(Counter))  # (app, cfg) -> os -> Counter
+    runs = defaultdict(set)
+    units = defaultdict(set)
+    for run, os_, app, met, cfg, _, value, unit in samples:
+        if met != metric:
+            continue
+        counts[(app, cfg)][os_][value] += 1
+        runs[(app, cfg, os_)].add(run)
+        units[(app, cfg, os_)].add(unit)
+
+    written = []
+    for (app, cfg), by_os in sorted(counts.items()):
+        name = f"value_counts_{app}_{cfg}.csv"
+        with open(out / name, "w", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(["os", "value", "count", "pct", "runs", "unit"])
+            for os_, c in sorted(by_os.items()):
+                total = sum(c.values())
+                unit = "/".join(sorted(units[(app, cfg, os_)]))
+                for value, n in sorted(c.items()):
+                    w.writerow([os_, value, n, f"{100 * n / total:.2f}",
+                                len(runs[(app, cfg, os_)]), unit])
+        written.append(name)
+    return written
+
+
+OS_STYLE = {  # (rótulo, cor): FreeRTOS azul, Ariel OS laranja
+    "freertos": ("FreeRTOS", "#2a78d6"),
+    "ariel-os": ("Ariel OS", "#eb6834"),
+}
+
+
+def write_jitter_bar_png(samples, out, app="iot", cfg="sensor_10ms", bin_cycles=48):
+    """Gráfico de barras (matplotlib, PNG) do jitter de (app, cfg): % das amostras de cada
+    sistema por faixa de `bin_cycles` ciclos (48 ciclos = 0,2 µs a 240 MHz), lado a lado.
+
+    Devolve o nome do arquivo, ou None se não houver amostras.
+    """
+    import matplotlib
+    matplotlib.use("Agg")  # sem janela: só grava o arquivo
+    import matplotlib.pyplot as plt
+
+    counts = {os_: Counter() for os_ in OS_STYLE}
+    for _, os_, a_, met, c_, _, value, _ in samples:
+        if a_ == app and met == "jitter" and c_ == cfg and os_ in counts:
+            counts[os_][math.floor(value / bin_cycles + 0.5)] += 1  # índice da faixa
+    oses = [o for o in OS_STYLE if counts[o]]
+    if not oses:
+        return None
+
+    fig, ax = plt.subplots(figsize=(9, 4.2), dpi=200)
+    width = bin_cycles * 0.9 / len(oses)
+    for k, o in enumerate(oses):
+        label, color = OS_STYLE[o]
+        total = sum(counts[o].values())
+        bins = sorted(counts[o])
+        x = [b * bin_cycles + (k - (len(oses) - 1) / 2) * width for b in bins]
+        y = [100 * counts[o][b] / total for b in bins]
+        ax.bar(x, y, width=width, color=color, label=label, zorder=2)
+
+    span = max(abs(b) * bin_cycles for o in oses for b in counts[o]) + bin_cycles
+    x_lim = 250 * math.ceil(span / 250)
+    ax.set_xlim(-x_lim, x_lim)
+    ax.set_xticks(range(-x_lim, x_lim + 1, 250))
+    ax.axvline(0, color="#6b6a66", linewidth=0.8, linestyle="--", zorder=1)
+    ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(decimals=0))
+    ax.grid(axis="y", color="#e6e5e1", linewidth=0.8, zorder=0)
+    for side in ("top", "right"):
+        ax.spines[side].set_visible(False)
+    ax.set_xlabel("Jitter (ciclos de CPU; 240 ciclos = 1 µs)")
+    ax.set_ylabel("Amostras (%)")
+    ax.set_title(f"Jitter da tarefa periódica ({app}, {cfg}) — faixas de {bin_cycles} ciclos",
+                 loc="left", fontsize=11)
+    ax.legend(frameon=False)
+    fig.tight_layout()
+
+    name = f"jitter_{app}_{cfg}.png"
+    fig.savefig(out / name)
+    plt.close(fig)
+    return name
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("logs", nargs="+")
@@ -116,6 +211,8 @@ def main():
             w = csv.writer(f)
             w.writerow(["run", "os", "app", "metric", "cfg", "idx", "value", "unit"])
             w.writerows(smp)
+        write_value_counts(smp, out)
+        write_jitter_bar_png(smp, out)
 
     if fps:
         with open(out / "footprint.csv", "w", newline="") as f:

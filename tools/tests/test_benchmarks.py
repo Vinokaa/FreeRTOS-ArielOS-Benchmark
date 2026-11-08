@@ -385,6 +385,15 @@ class AnalysisTests(unittest.TestCase):
                 self.assertEqual(len(rows), count, name)
             self.assertTrue(all(row["ariel/freertos_p99"] == "1.000" for row in rows))
             self.assertTrue(all(row["unit"] == "cycles" for row in rows))
+            for cfg in ("blinky_1ms", "blinky_10ms", "blinky_100ms", "iot_sensor_10ms"):
+                with (out / f"value_counts_{cfg}.csv").open() as stream:
+                    vc = list(csv.DictReader(stream))
+                for os_label in ("freertos", "ariel-os"):
+                    mine = [row for row in vc if row["os"] == os_label]
+                    self.assertEqual(sum(int(row["count"]) for row in mine), 1000, cfg)
+                    self.assertAlmostEqual(sum(float(row["pct"]) for row in mine), 100, delta=0.5)
+            png = (out / "jitter_iot_sensor_10ms.png").read_bytes()
+            self.assertTrue(png.startswith(b"\x89PNG"))
 
     def test_refuse_to_mix_microsecond_and_cycle_logs(self):
         with tempfile.TemporaryDirectory() as directory:
