@@ -1,0 +1,8 @@
+app,metric,cfg,unit,ariel_mean,freertos_mean,ariel/freertos_mean,ariel_p99,freertos_p99,ariel/freertos_p99,ariel_worst,freertos_worst
+blinky,jitter,100ms,cycles,0.00,0.00,n/a,180.00,0.00,n/a,180,0
+blinky,jitter,10ms,cycles,0.00,0.00,n/a,180.00,0.00,n/a,180,0
+blinky,jitter,1ms,cycles,0.00,0.00,n/a,315.00,0.00,n/a,315,0
+iot,irq_latency,swi_drdy,cycles,720.00,274.00,2.628,720.00,274.00,2.628,720,274
+iot,jitter,sensor_10ms,cycles,0.00,0.00,n/a,417.00,157.00,2.656,501,301
+iot,proc_exec,avg8_alarm,cycles,347.00,255.00,1.361,351.00,258.00,1.360,353,258
+iot,task_switch,isr_to_thread,cycles,2006.00,820.00,2.446,2006.00,820.00,2.446,2006,820

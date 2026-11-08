@@ -1,5 +1,5 @@
 /* Equivalent to Ariel OS/iot: sensor -> software IRQ -> processing -> shared state.
- * All timestamps are hardware microseconds, not FreeRTOS ticks. */
+ * All timestamps are CPU cycles (CCOUNT, 240 MHz), not FreeRTOS ticks. */
 #include <inttypes.h>
 #include <stdatomic.h>
 #include <stdbool.h>
@@ -12,7 +12,6 @@
 #include "esp_attr.h"
 #include "esp_err.h"
 #include "esp_intr_alloc.h"
-#include "esp_timer.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "sdkconfig.h"
@@ -50,11 +49,6 @@ static _Atomic uint32_t events_lost;
 /* Static storage exposes measurement RAM in the ELF, outside task stacks. */
 static bench_collector_t jitter_col, irq_col, switch_col, exec_col;
 
-static inline uint32_t now_us(void)
-{
-    return (uint32_t)esp_timer_get_time();
-}
-
 /* Same wrapping LCG, triangle and 12-bit range as Ariel's synth(). */
 static uint16_t synth(uint32_t seq)
 {
@@ -67,12 +61,12 @@ static uint16_t synth(uint32_t seq)
 
 static void IRAM_ATTR drdy_swi(void *argument)
 {
-    uint32_t entered = (uint32_t)esp_timer_get_time(); /* First application statement. */
+    uint32_t entered = bench_cycles(); /* First application statement. */
     DPORT_REG_WRITE(DPORT_CPU_INTR_FROM_CPU_2_REG, 0);
     atomic_store_explicit(&t_irq, entered, memory_order_release);
     BaseType_t higher_priority_woken = pdFALSE;
     (void)argument;
-    atomic_store_explicit(&t_signal, (uint32_t)esp_timer_get_time(), memory_order_release);
+    atomic_store_explicit(&t_signal, bench_cycles(), memory_order_release);
     vTaskNotifyGiveFromISR(processing_handle, &higher_priority_woken);
     if (higher_priority_woken) {
         portYIELD_FROM_ISR();
@@ -93,12 +87,12 @@ static void sensor_task(void *argument)
     bool have_previous = false;
     for (;;) {
         xTaskDelayUntil(&deadline, pdMS_TO_TICKS(SENSOR_PERIOD_MS));
-        uint32_t started = now_us(); /* Before acquisition or instrumentation. */
+        uint32_t started = bench_cycles(); /* Before acquisition or instrumentation. */
 
         /* Never overwrite an event's timestamps if processing fell behind. */
         if (!atomic_exchange_explicit(&event_pending, true, memory_order_acq_rel)) {
             atomic_store_explicit(&raw_value, synth(seq), memory_order_release);
-            atomic_store_explicit(&t_event, now_us(), memory_order_release);
+            atomic_store_explicit(&t_event, bench_cycles(), memory_order_release);
             DPORT_REG_WRITE(DPORT_CPU_INTR_FROM_CPU_2_REG, DPORT_CPU_INTR_FROM_CPU_2);
         } else if (!atomic_load_explicit(&sensor_done, memory_order_acquire) ||
                    !atomic_load_explicit(&processing_done, memory_order_acquire)) {
@@ -107,7 +101,8 @@ static void sensor_task(void *argument)
         ++seq;
 
         if (have_previous && !bench_full(&jitter_col)) {
-            bench_push(&jitter_col, bench_delta(previous, started) - SENSOR_PERIOD_MS * 1000);
+            bench_push(&jitter_col, bench_delta(previous, started) -
+                                   (int32_t)(SENSOR_PERIOD_MS * BENCH_CYCLES_PER_MS));
             if (bench_full(&jitter_col)) {
                 atomic_store_explicit(&sensor_done, true, memory_order_release);
             }
@@ -127,7 +122,7 @@ static void processing_task(void *argument)
 
     for (;;) {
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-        uint32_t started = now_us(); /* First statement after notification wait. */
+        uint32_t started = bench_cycles(); /* First statement after notification wait. */
         uint32_t signaled = atomic_load_explicit(&t_signal, memory_order_acquire);
         uint32_t entered = atomic_load_explicit(&t_irq, memory_order_acquire);
         uint32_t event = atomic_load_explicit(&t_event, memory_order_acquire);
@@ -152,7 +147,7 @@ static void processing_task(void *argument)
         portENTER_CRITICAL(&shared_lock);
         shared = (shared_t){.seq = seq, .raw = raw, .mv = mv, .alarm = alarm};
         portEXIT_CRITICAL(&shared_lock);
-        uint32_t ended = now_us();
+        uint32_t ended = bench_cycles();
 
         if (!bench_full(&switch_col)) {
             bench_push(&irq_col, bench_delta(event, entered));

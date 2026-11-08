@@ -8,20 +8,14 @@
 #include "driver/gpio.h"
 #include "driver/uart.h"
 #include "esp_attr.h"
-#include "esp_cpu.h"
 #include "esp_err.h"
 #include "esp_intr_alloc.h"
-#include "esp_timer.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
 #include "freertos/task.h"
 #include "sdkconfig.h"
 #include "soc/dport_reg.h"
 #include "soc/interrupts.h"
-
-#if CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ != 240 || defined(CONFIG_PM_ENABLE)
-#error "UART cycle conversion requires a fixed 240 MHz CPU (see sdkconfig.defaults)"
-#endif
 
 #if !CONFIG_FREERTOS_UNICORE || defined(CONFIG_ESP_IPC_ISR_ENABLE)
 #error "UART IRQ benchmark requires UNICORE: SWI2 must be free of IPC ISR use"
@@ -36,7 +30,6 @@
 #define LED_TASK_PRIORITY 3
 #define BENCHMARK_CORE BENCH_CORE
 #define APP "uart-to-led"
-#define CYCLES_PER_US 240
 
 typedef struct {
     uint8_t value;
@@ -48,15 +41,15 @@ static _Atomic uint32_t last_switch_cycles;
 static bench_collector_t switch_col;
 static bench_collector_t irq_col;
 static TaskHandle_t benchmark_uart_task;
-static _Atomic uint32_t irq_entered_us;
+static _Atomic uint32_t irq_entered_cycles;
 
 /* Same software-triggered interrupt method as IoT/Wang; this does not measure
  * UART electrical reception or the driver's RX interrupt. No logging in ISR. */
 static void IRAM_ATTR benchmark_swi(void *argument)
 {
-    uint32_t entered = (uint32_t)esp_timer_get_time();
+    uint32_t entered = bench_cycles(); /* First application statement. */
     DPORT_REG_WRITE(DPORT_CPU_INTR_FROM_CPU_2_REG, 0);
-    atomic_store_explicit(&irq_entered_us, entered, memory_order_release);
+    atomic_store_explicit(&irq_entered_cycles, entered, memory_order_release);
     BaseType_t higher_priority_woken = pdFALSE;
     (void)argument;
     vTaskNotifyGiveFromISR(benchmark_uart_task, &higher_priority_woken);
@@ -70,14 +63,14 @@ static void measure_interrupt_latency(void)
     if (bench_full(&irq_col)) {
         return;
     }
-    uint32_t triggered = (uint32_t)esp_timer_get_time();
+    uint32_t triggered = bench_cycles();
     DPORT_REG_WRITE(DPORT_CPU_INTR_FROM_CPU_2_REG, DPORT_CPU_INTR_FROM_CPU_2);
     /* A counting notification also works when the IRQ ran before this wait.
      * Finish this event before another command can overwrite its timestamp. */
     if (ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(1000)) != 1) {
         abort();
     }
-    uint32_t entered = atomic_load_explicit(&irq_entered_us, memory_order_acquire);
+    uint32_t entered = atomic_load_explicit(&irq_entered_cycles, memory_order_acquire);
     bench_push(&irq_col, bench_delta(triggered, entered));
 }
 
@@ -140,15 +133,15 @@ static void uart_task(void *argument)
 
         /* The LED task has a higher priority and is waiting on this queue. */
         command.value = byte;
-        command.sent_at = esp_cpu_get_cycle_count();
+        command.sent_at = bench_cycles();
         if (xQueueSend(command_queue, &command, portMAX_DELAY) != pdTRUE) {
             abort();
         }
 
         /* The higher-priority LED task records the latency before we resume.
-         * Keep R in cycles; quantize only the common SAMPLE export to us. */
+         * R and SAMPLE both carry CPU cycles. */
         uint32_t cycles = atomic_load_explicit(&last_switch_cycles, memory_order_acquire);
-        bench_push(&switch_col, (int32_t)(cycles / CYCLES_PER_US));
+        bench_push(&switch_col, (int32_t)cycles);
         write_response(sequence, byte, cycles);
         sequence++;
     }
@@ -166,7 +159,7 @@ static void led_task(void *argument)
         }
 
         atomic_store_explicit(&last_switch_cycles,
-                              esp_cpu_get_cycle_count() - command.sent_at,
+                              bench_cycles() - command.sent_at,
                               memory_order_release);
 
         if (command.value == '1') {

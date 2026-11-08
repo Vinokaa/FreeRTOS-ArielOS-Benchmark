@@ -15,7 +15,8 @@ ou cálculo de estatísticas. Eventos pendentes não são sobrescritos; perdas
 durante a janela de coleta aparecem em `INFO,iot,events_lost,N`.
 
 São exportadas 1000 amostras válidas de jitter, latência de interrupção,
-task-switch e execução do processamento, com 5 descartes iniciais por métrica.
+task-switch e execução do processamento, com 5 descartes iniciais por métrica,
+todas em ciclos de CPU (CCOUNT, 240 MHz).
 O logger exporta somente após o sensor e o processamento completarem a coleta.
 
 ## Compilar, coletar e analisar
@@ -26,16 +27,17 @@ Com ESP-IDF ativado, execute da raiz do repositório:
 idf.py -C FreeRTOS/iot set-target esp32
 idf.py -C FreeRTOS/iot build size
 idf.py -C FreeRTOS/iot -p PORTA flash
-python3 FreeRTOS/tools/capture.py --app iot --port PORTA \
+python3 tools/capture.py --os freertos --app iot --port PORTA \
   --runs 30 --out runs/freertos-iot-piloto
-python3 "Ariel OS/scripts/collect.py" runs/freertos-iot-piloto/*.log \
+python3 tools/collect.py runs/freertos-iot-piloto/*.log \
   -o out/iot
-python3 FreeRTOS/tools/footprint.py FreeRTOS/iot/build/iot.elf \
+python3 tools/footprint.py FreeRTOS/iot/build/iot.elf \
   --app iot --os freertos
 ```
 
 Substitua `PORTA` pela porta serial. A captura requer `pyserial`, reinicia a placa
-por DTR/RTS e valida 4000 amostras por execução, sem eventos perdidos. Aguarde
+por DTR/RTS e valida 4000 amostras por execução, sem eventos perdidos e com o relógio
+de ciclos conferido (`ccount_per_100ms`). Aguarde
 `BENCH_END,iot`; não mantenha outro monitor serial aberto durante a captura.
 `set-target` regenera a configuração, então preserve ajustes locais antes.
 

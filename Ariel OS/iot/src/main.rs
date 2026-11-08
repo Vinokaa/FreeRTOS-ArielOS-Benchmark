@@ -9,23 +9,24 @@
 //! * Task Processamento (thread, prio. alta): média móvel de 8 amostras, conversão para mV,
 //!   alarme com histerese; escreve no struct compartilhado.
 //! * Task Atuador (thread, 20 ms): lê o struct e aciona o LED (GPIO2) conforme o alarme.
-//! * Task Log (thread, 1 s): lê o struct e transmite uma linha de log.
+//! * Task Log (thread, 1 s): lê o struct e transmite uma linha de log; ao fim da coleta,
+//!   é a única que exporta as amostras (nada de exportação concorrente entre threads).
 //!
-//! Métricas embutidas (todas medidas COM a carga completa da aplicação em execução):
+//! Métricas embutidas (todas medidas COM a carga completa da aplicação em execução), em
+//! ciclos de CPU (CCOUNT, 240 MHz):
 //!  * JITTER PERIÓDICO do Task Sensor        J = (C_i − C_{i−1}) − 10 ms
-//!  * LATÊNCIA DE INTERRUPÇÃO                C_irq (retomada da tarefa de IRQ) − C_evento
+//!  * LATÊNCIA DE INTERRUPÇÃO                C_irq (1ª linha do handler) − C_evento
 //!  * LATÊNCIA DE TASK-SWITCH                C_início_processamento − C_sinalização
 //!  * (extra) tempo de execução do processamento, para validar a equivalência da carga.
 //!
-//! Observação: o ponto de medição de C_irq é a primeira linha do handler `drdy_swi`
-//! (despacho da CPU + vetorização do esp-hal). A sinalização é feita dentro da própria
-//! ISR, então a latência de task-switch vai da ISR até a 1ª linha do Processamento.
+//! Igual à versão FreeRTOS: um evento pendente nunca é sobrescrito; eventos descartados
+//! durante a coleta aparecem em `INFO,iot,events_lost,N`.
 #![no_main]
 #![no_std]
 
 use core::{
     cell::{Cell, RefCell},
-    sync::atomic::{AtomicU32, Ordering},
+    sync::atomic::{AtomicBool, AtomicU32, Ordering},
 };
 
 use ariel_os::{
@@ -46,9 +47,8 @@ use esp_hal::{
 };
 
 const APP: &str = "iot";
-const SENSOR_PERIOD_MS: u64 = 10;
+const SENSOR_PERIOD_MS: u32 = 10;
 const ACTUATOR_PERIOD_MS: u64 = 20;
-#[cfg(not(feature = "quiet"))]
 const LOG_PERIOD_MS: u64 = 1000;
 const FILTER_WINDOW: usize = 8;
 const ALARM_ON_MV: u32 = 1800;
@@ -73,6 +73,16 @@ static T_EVENT: AtomicU32 = AtomicU32::new(0);
 static T_IRQ: AtomicU32 = AtomicU32::new(0);
 static T_SIG: AtomicU32 = AtomicU32::new(0);
 static PROC_TID: Mutex<Cell<Option<ThreadId>>> = Mutex::new(Cell::new(None));
+static EVENT_PENDING: AtomicBool = AtomicBool::new(false);
+static EVENTS_LOST: AtomicU32 = AtomicU32::new(0);
+
+// ---- Coletores estáticos (RAM de medição visível no ELF, como no FreeRTOS) ----
+static JITTER_COL: Mutex<RefCell<Collector>> = Mutex::new(RefCell::new(Collector::new()));
+static IRQ_COL: Mutex<RefCell<Collector>> = Mutex::new(RefCell::new(Collector::new()));
+static SWITCH_COL: Mutex<RefCell<Collector>> = Mutex::new(RefCell::new(Collector::new()));
+static EXEC_COL: Mutex<RefCell<Collector>> = Mutex::new(RefCell::new(Collector::new()));
+static SENSOR_DONE: Flag = Flag::new();
+static PROC_DONE: Flag = Flag::new();
 
 static ACT_LED: PinSlot = PinSlot::new();
 static HW_READY: Flag = Flag::new();
@@ -99,6 +109,22 @@ fn synth(seq: u32) -> u16 {
     (1500 + tri * 5 + noise).clamp(0, 4095) as u16
 }
 
+/// Registra uma amostra (fora das janelas medidas: os timestamps já foram lidos).
+/// Devolve `true` quando o coletor está cheio.
+fn push(col: &Mutex<RefCell<Collector>>, v: i32) -> bool {
+    critical_section::with(|cs| {
+        let mut c = col.borrow_ref_mut(cs);
+        c.push(v);
+        c.is_full()
+    })
+}
+
+/// Exporta um coletor já congelado (cópia rápida; impressão fora da seção crítica).
+fn dump(col: &Mutex<RefCell<Collector>>, metric: &str, cfg: &str) {
+    let snapshot = critical_section::with(|cs| col.borrow_ref(cs).clone());
+    snapshot.finish(APP, metric, cfg);
+}
+
 // ======================= Interrupção (DRDY) =======================
 
 /// Handler de FROM_CPU_INTR2: registra C_irq e sinaliza o processamento.
@@ -106,12 +132,12 @@ fn synth(seq: u32) -> u16 {
 #[esp_hal::handler(priority = Priority::Priority1)]
 #[ram]
 fn drdy_swi() {
-    let t_irq = clock::now_us(); // primeira linha de código da app após a interrupção
+    let t_irq = clock::now_cycles(); // primeira linha de código da app após a interrupção
     drdy_swi_line().reset(); // limpa FROM_CPU_INTR2
     T_IRQ.store(t_irq, Ordering::Release);
 
     if let Some(tid) = critical_section::with(|cs| PROC_TID.borrow(cs).get()) {
-        T_SIG.store(clock::now_us(), Ordering::Release); // C_sinalização
+        T_SIG.store(clock::now_cycles(), Ordering::Release); // C_sinalização
         thread_flags::set(tid, FLAG_DRDY);
     }
 }
@@ -126,47 +152,47 @@ async fn hw_init(p: Pins) {
 
 // ======================= Task Sensor =======================
 
-#[ariel_os::thread(autostart, stacksize = 8192, priority = 3)]
+#[ariel_os::thread(autostart, stacksize = 4096, priority = 3)]
 fn sensor() {
     HW_READY.wait();
     PROC_UP.wait();
     report::begin(APP);
 
-    let period = Duration::from_millis(SENSOR_PERIOD_MS);
-    let period_us = (SENSOR_PERIOD_MS * 1000) as i32;
-    let mut col = Collector::new();
-    let mut reported = false;
+    let period = Duration::from_millis(SENSOR_PERIOD_MS as u64);
+    let expected = (SENSOR_PERIOD_MS * clock::CYCLES_PER_MS) as i32;
     let mut prev: Option<u32> = None;
     let mut seq: u32 = 0;
     let mut deadline = Instant::now() + period;
 
     loop {
         thread::sleep_until(deadline);
-        let t = clock::now_us(); // timestamp ANTES do trabalho da tarefa
+        let t = clock::now_cycles(); // timestamp ANTES do trabalho da tarefa
         deadline += period;
 
         // ---- Aquisição (carga da aplicação) ----
-        RAW_VAL.store(synth(seq) as u32, Ordering::Release);
-        T_EVENT.store(clock::now_us(), Ordering::Release); // C_evento
-        drdy_swi_line().raise(); // gera a interrupção
+        // Nunca sobrescreve os timestamps de um evento ainda não processado.
+        if !EVENT_PENDING.swap(true, Ordering::AcqRel) {
+            RAW_VAL.store(synth(seq) as u32, Ordering::Release);
+            T_EVENT.store(clock::now_cycles(), Ordering::Release); // C_evento
+            drdy_swi_line().raise(); // gera a interrupção
+        } else if !(SENSOR_DONE.is_set() && PROC_DONE.is_set()) {
+            EVENTS_LOST.fetch_add(1, Ordering::Relaxed);
+        }
         seq = seq.wrapping_add(1);
 
         // ---- Instrumentação: jitter periódico ----
         if let Some(p) = prev {
-            col.push(clock::delta_i32(p, t) - period_us);
+            if !SENSOR_DONE.is_set() && push(&JITTER_COL, clock::delta_i32(p, t) - expected) {
+                SENSOR_DONE.set();
+            }
         }
         prev = Some(t);
-        if col.is_full() && !reported {
-            reported = true;
-            col.finish(APP, "jitter", "sensor_10ms");
-        }
     }
 }
 
 // ======================= Task Processamento =======================
 
-// 3 coletores de ~4 KB na pilha (c_irq, c_sw, c_exec) -> 16 KB.
-#[ariel_os::thread(autostart, stacksize = 16384, priority = 4)]
+#[ariel_os::thread(autostart, stacksize = 4096, priority = 4)]
 fn processing() {
     HW_READY.wait();
     critical_section::with(|cs| PROC_TID.borrow(cs).set(thread::current_tid()));
@@ -178,14 +204,9 @@ fn processing() {
     let mut alarm = false;
     let mut seq: u32 = 0;
 
-    let mut c_irq = Collector::new();
-    let mut c_sw = Collector::new();
-    let mut c_exec = Collector::new();
-    let mut reported = false;
-
     loop {
         thread_flags::wait_any(FLAG_DRDY);
-        let t_start = clock::now_us(); // C_início_processamento
+        let t_start = clock::now_cycles(); // C_início_processamento
         thread_flags::clear(FLAG_DRDY);
         let t_sig = T_SIG.load(Ordering::Acquire);
         let t_irq = T_IRQ.load(Ordering::Acquire);
@@ -210,19 +231,17 @@ fn processing() {
         critical_section::with(|cs| {
             *SHARED.borrow_ref_mut(cs) = Shared { seq, raw, mv, alarm };
         });
-        let t_end = clock::now_us();
+        let t_end = clock::now_cycles();
 
         // ---- Instrumentação ----
-        c_irq.push(clock::delta_i32(t_ev, t_irq));
-        c_sw.push(clock::delta_i32(t_sig, t_start));
-        c_exec.push(clock::delta_i32(t_start, t_end));
-        if c_sw.is_full() && !reported {
-            reported = true;
-            c_irq.finish(APP, "irq_latency", "swi_drdy");
-            c_sw.finish(APP, "task_switch", "isr_to_thread");
-            c_exec.finish(APP, "proc_exec", "avg8_alarm");
-            report::end(APP);
+        if !PROC_DONE.is_set() {
+            push(&IRQ_COL, clock::delta_i32(t_ev, t_irq));
+            push(&EXEC_COL, clock::delta_i32(t_start, t_end));
+            if push(&SWITCH_COL, clock::delta_i32(t_sig, t_start)) {
+                PROC_DONE.set();
+            }
         }
+        EVENT_PENDING.store(false, Ordering::Release);
     }
 }
 
@@ -243,14 +262,30 @@ fn actuator() {
 
 // ======================= Task Log =======================
 
-#[cfg(not(feature = "quiet"))]
-#[ariel_os::thread(autostart, stacksize = 4096, priority = 1)]
+// Pilha maior: `dump` copia um coletor (~4 KB) antes de imprimir.
+#[ariel_os::thread(autostart, stacksize = 8192, priority = 1)]
 fn logger() {
     HW_READY.wait();
+    let mut reported = false;
     loop {
         thread::sleep(Duration::from_millis(LOG_PERIOD_MS));
         let s = critical_section::with(|cs| *SHARED.borrow_ref(cs)); // leitura
-        // Prefixo LOG, para o coletor ignorar estas linhas.
+        // Prefixo LOG, para o coletor ignorar estas linhas. `quiet` só suprime esta linha.
+        #[cfg(not(feature = "quiet"))]
         ariel_os::log::info!("LOG,seq={},raw={},mv={},alarm={}", s.seq, s.raw, s.mv, s.alarm);
+        #[cfg(feature = "quiet")]
+        let _ = s;
+
+        // Exporta só depois que TODOS os coletores terminaram (a impressão não perturba
+        // nenhuma janela de medição e as linhas não se intercalam entre threads).
+        if !reported && SENSOR_DONE.is_set() && PROC_DONE.is_set() {
+            reported = true;
+            dump(&JITTER_COL, "jitter", "sensor_10ms");
+            dump(&IRQ_COL, "irq_latency", "swi_drdy");
+            dump(&SWITCH_COL, "task_switch", "isr_to_thread");
+            dump(&EXEC_COL, "proc_exec", "avg8_alarm");
+            report::info_kv(APP, "events_lost", EVENTS_LOST.load(Ordering::Relaxed));
+            report::end(APP);
+        }
     }
 }
