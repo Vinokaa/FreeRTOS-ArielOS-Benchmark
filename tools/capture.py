@@ -24,14 +24,11 @@ EXPECTED = {
     ("freertos", "uart-to-led"): UART,
     ("freertos", "iot"): IOT,
     ("ariel-os", "blinky"): BLINKY,
+    ("ariel-os", "uart-to-led"): UART,
     ("ariel-os", "iot"): IOT,
 }
 APPS = sorted({app for _, app in EXPECTED})
-NOT_SUPPORTED = {
-    ("ariel-os", "uart-to-led"):
-        'Ariel OS uart-to-led does not use bench-common; collect it with '
-        '"Ariel OS/uart-to-led/tools/bech_uart_to_led.py".',
-}
+NOT_SUPPORTED = {}
 # CCOUNT cycles in 100 ms of the independent 1 us timer; reject a clock off by >1%.
 CCOUNT_100MS = CPU_HZ // 10
 CCOUNT_TOLERANCE = CCOUNT_100MS // 100
